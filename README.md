@@ -2,11 +2,9 @@
 
 ## Introduction
 
-My Plant Diary allows homeowners to maintain records on plants in their yard.  They can upload photos and add notes to a plant at any time.  Plant data, including sustainability and edibility, are sourced from PlantPlaces.com master data.
+PhotoLocos allows photographers to maintain records of their favorite photography locations.  They can upload photos and location data at any time.
 
-Users can generate a report to show several attributes of their yard: sustainability, edibility, native, etc.  This report can be used to help sell the positive attributes of the house.
-
-Users can interact with MyPlantDiary using either a set of RESTful service endpoints, or a simple UI, or both.
+Users can interact with PhotoLocos using either a set of RESTful service endpoints, or a simple UI, or both.
 
 ## Storyboard
 
@@ -14,7 +12,7 @@ Users can interact with MyPlantDiary using either a set of RESTful service endpo
 
 ## Requirements
 
-1. As a homeowner, I want to be able to catalog my specimens, so that I will remember what I planted.
+1. As a photographer, I want to be able to catalog my favorite locations, so that I share and remember where I found good photo spots.
 
 ### Example 
 
@@ -120,8 +118,8 @@ This is what we plan to export to another app.
 
 ## Team Memebers and Roles
 
-UI Specialist: 
-Business Logic/Persitence: 
+UI Specialist: Kyle Marler & Joshua Gyau
+Business Logic/Persitence: Max Graman & Sandhu Paramjyot
 DevOps/Product Owner/Scrum Master/GitHub Admin: Vaz Torcato
 
 ## Milestones
@@ -130,7 +128,7 @@ DevOps/Product Owner/Scrum Master/GitHub Admin: Vaz Torcato
 
 ## Standup
 
-[We meet 7:00 PM Eastern on Sunday on Teams](https://teams.microsoft.com/l/meetup-join/19%3af8fd74991d314a0987e34b7c91ed88be%40thread.tacv2/1598225206706?context=%7b%22Tid%22%3a%22f5222e6c-5fc6-48eb-8f03-73db18203b63%22%2c%22Oid%22%3a%225c29be2c-6de4-49ad-a444-dfb003838da6%22%7d)
+[We meet 6:00 PM Eastern on Thursday on Teams]()
 
 
 
