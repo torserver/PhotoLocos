@@ -16,13 +16,13 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ### Example 
 
-**Given**:  A feed of plant data are available
+**Given**:  A feed of photo data are available
 
-**When**: The user/service selects plant Eastern Redbud
+**When**: The user/service selects a photo "photoname"
 
-**When**: The user/service adds latitude 39.74 to an Eastern Redbud specimen
+**When**: The user/service adds location to "photoname"
 
-**Then**: The user’s/service’s Eastern Redbud will be saved with 39.74 latitude.
+**Then**: The user’s/service’s photo will be saved with photo location
 
 ### Example 
 
