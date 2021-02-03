@@ -26,37 +26,37 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ### Example 
 
-**Given**: Specimen data are available
+**Given**: Photo data are available
 
-**When**: The user/service searches for “kajsd;luaopuidfjo;aj;sd”
+**When**: The user/service searches for “383837dhdhdlslsl888”
 
-**Then**: My Plant Diary will not return any results, and the user will not be able to save the specimen.
-
-### Example 
-
-**Given**: Specimen data are available, and specimen 83 is Eastern Redbud.
-
-**When**: The user/service searches for the specimen with ID “83”
-
-**Then**: My Plant Diary will return exactly one specimen record for "Eastern Redbud".
+**Then**: PhotoLocos will not return any results, and the user will not be able to save the photo.
 
 ### Example 
 
-**Given**: Specimen data are available
+**Given**: Photo data are available, and the photo is Ohio River with tag "river".
 
-**When**: The user/service posts a new Specimen object with valid attributes "latitude=39.74, longitude=-84.51"
+**When**: The user/service searches for the photo with tag “River”
 
-**Then**: MyPlantDiary will create a new specimen for this record, and will return this new specimen object.
-
-2.	As a homeowner, I want to be able to upload photos of my plant at any time.
+**Then**: PhotoLocos will return all photo locations with the respective tag "river".
 
 ### Example 
 
-**Given**: The user is logged in and has selected a previously-saved Eastern Redbud specimen
+**Given**: Photo data are available
+
+**When**: The user/service posts a new photo with valid location attributes "latitude=39.74, longitude=-84.51, city=cincinnati, state=OH, country=US"
+
+**Then**: PhotoLocos will create a new photo for this record, and will return this new photo object.
+
+2.	As a homeowner, I want to be able to upload photos that I love at any time.
+
+### Example 
+
+**Given**: The user is logged in and has selected a previously-saved photo object with tag "flower"
 
 **When**: The user uploads a valid 640*480 photo of an Eastern Redbud Flower
 
-**Then**: The 640*480  photo of an Eastern Redbud flower will be saved to the specimen profile, and can be viewed later.
+**Then**: The 640*480  photo of an Eastern Redbud flower will be saved as a photo object with tag "flower" which can be searched and retrieved later.
 
 ### Example 
 
