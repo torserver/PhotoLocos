@@ -121,27 +121,6 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 This is what we plan to export to another app.
 
 
-> {
-  
->  "type" : "object",
-  
->  "properties" : {
-  
->    "name" : {
-  
->      "type" : "string"
-  
->    },
-  
->    "age" : {
-  
->      "type" : "integer"
-  
->    }
-  
->  }
-  
-> }
 
 ## Team Memebers and Roles
 

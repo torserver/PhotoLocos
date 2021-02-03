@@ -1,0 +1,38 @@
+{
+    "$id": "https://example.com/person.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Location",
+    "type": "object",
+      "properties": {
+        "longitude": {
+          "type": "string",
+          "description": "Longitude of the location."
+        },
+        "latitude": {
+          "type": "string",
+          "description": "Latitude of the location."
+        },
+        "country": {
+          "description": "Country of the location",
+          "type": "string"
+        },
+        "state": {
+          "description": "State/providence of the location",
+          "type": "string"
+        },
+        "city": {
+          "description": "City of the location",
+          "type": "string"
+        },
+        "area": {
+          "description": "A more detailed description about where to find said location.",
+          "type": "string"
+        },
+        "description": {
+          "description": "Description of the location",
+          "type": "string"
+        }
+      }
+  }
+
+  
