@@ -12,7 +12,7 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ## Requirements
 
-1. As a photographer, I want to be able to catalog my favorite locations, so that I share and remember where I found good photo spots.
+1. As a photographer, I want to be able to catalog my favorite photos and locations, so that I share and remember where I found good photo spots.
 
 ### Example 
 
@@ -30,7 +30,7 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 **When**: The user/service searches for “383837dhdhdlslsl888”
 
-**Then**: PhotoLocos will not return any results, and the user will not be able to save the photo.
+**Then**: PhotoLocos will not return any results, and the user will not be able to see any photos/locations.
 
 ### Example 
 
@@ -40,6 +40,8 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 **Then**: PhotoLocos will return all photo locations with the respective tag "river".
 
+**Then**: PhotoLocos will return all photos with the respective tag "river".
+
 ### Example 
 
 **Given**: Photo data are available
@@ -48,19 +50,29 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 **Then**: PhotoLocos will create a new photo for this record, and will return this new photo object.
 
+### Example 
+
+**Given**: Photo location data is available
+
+**When**: The user selects a state, city, and/or area
+
+**Then**: PhotoLocos will display relevant photos
+
+**Then**: PhotoLocos will display popular tags in that area
+
 2.	As a homeowner, I want to be able to upload photos that I love at any time.
 
 ### Example 
 
-**Given**: The user is logged in and has selected a previously-saved photo object with tag "flower"
+**Given**: The user has selected a 'upload photo'
 
-**When**: The user uploads a valid 640*480 photo of an Eastern Redbud Flower
+**When**: The user uploads a valid 640*480 photo and inputs required photo attributes and tag
 
-**Then**: The 640*480  photo of an Eastern Redbud flower will be saved as a photo object with tag "flower" which can be searched and retrieved later.
+**Then**: The 640*480 photo will be saved as a photo object which can be searched and retrieved later using location or tag.
 
 ### Example 
 
-**Given**: The user is logged in and has selected a previously-saved Eastern Redbud specimen
+**Given**: The user selects upload photo
 
 **When**: The user uploads a 100GB photo
 
@@ -68,7 +80,17 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ### Example 
 
-**Given**: The user is logged in and has selected a previously-saved Eastern Redbud specimen
+**Given**: The user selects upload photo
+
+**When**: The user attaches a photo
+
+**When**: The user does not enter attributes
+
+**Then**: The photo will be rejected and message to the user "Input Required Fields"
+
+### Example 
+
+**Given**: The user selects upload photo
 
 **When**: The user uploads a 1600*1200 photo
 
@@ -76,22 +98,17 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 **Then**: The 640*480 photo will be shown to the user.
 
-3)	As a homeowner, I want to generate a report of the sustainability of my yard.
+3.	As a homeowner, I want to browse photos based on certain filters
 ### Example 
 
-**Given**: The user has a valid account and specimens associated to that account.
+**Given**: The user has entered state
 
-**When**: The user runs a report.
+**When**: The user searches.
 
-**Then**: The user will see a report of plants, dates, native, edible, and sustainability rating.
+**Then**: The user will see a list of locations in that area and other filters
 
-### Example 
+**Then**: The user will see photos matching the location
 
-**Given**: The user has a valid account and no specimens associated to that account.
-
-**When**: The user runs a report.
-
-**Then**: The user will see an error, indicating no data available for report.
 
 ## Class Diagram
 
@@ -103,21 +120,24 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 This is what we plan to export to another app.
 
-Please see the exmpaples folder for the JSON schemas of this project.
+
 
 ## Team Memebers and Roles
 
 UI Specialist: Kyle Marler & Joshua Gyau
+  
 Business Logic/Persitence: Max Graman & Sandhu Paramjyot
+  
 DevOps/Product Owner/Scrum Master/GitHub Admin: Vaz Torcato
+  
 
 ## Milestones
 
-[Milestone 1](https://github.com/discospiff/SpringBootMicroservicesWithIntelliJIDEA/milestone/1)
+[Milestones](https://github.com/torserver/PhotoLocos/milestones)
 
 ## Standup
 
-[We meet 6:00 PM Eastern on Thursday on Teams]()
+[We meet 6:00 PM Eastern on Thursday on Teams]
 
 
 
