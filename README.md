@@ -122,15 +122,25 @@ This is what we plan to export to another app.
 
 
 > {
+  
 >  "type" : "object",
+  
 >  "properties" : {
+  
 >    "name" : {
+  
 >      "type" : "string"
+  
 >    },
+  
 >    "age" : {
+  
 >      "type" : "integer"
+  
 >    }
+  
 >  }
+  
 > }
 
 ## Team Memebers and Roles
