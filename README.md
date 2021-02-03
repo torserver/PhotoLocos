@@ -145,7 +145,7 @@ DevOps/Product Owner/Scrum Master/GitHub Admin: Vaz Torcato
 
 ## Standup
 
-[We meet 6:00 PM Eastern on Thursday on Teams]()
+[We meet 6:00 PM Eastern on Thursday on Teams]
 
 
 
