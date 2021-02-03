@@ -1,0 +1,32 @@
+{
+    "$id": "https://example.com/person.schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Photo",
+    "type": "object",
+      "properties": {
+        "fileType": {
+          "type": "string",
+          "description": "The type of the file (png, jpg, bmp...)"
+        },
+        "tags": {
+          "type": "string",
+          "description": "Tags that relate to the image uploaded"
+        },
+        "location": {
+          "description": "Location as an object of Location.json, consider converting to string.",
+          "type": "string"
+        },
+        "rating": {
+          "description": "Rating out of 5 stars of the photo.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "tips": {
+          "type": "string",
+          "description": "Tips to tell other photographers about the location"
+        }
+      }
+  }
+
+  
