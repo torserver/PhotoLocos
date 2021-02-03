@@ -136,8 +136,11 @@ This is what we plan to export to another app.
 ## Team Memebers and Roles
 
 UI Specialist: Kyle Marler & Joshua Gyau
+  
 Business Logic/Persitence: Max Graman & Sandhu Paramjyot
+  
 DevOps/Product Owner/Scrum Master/GitHub Admin: Vaz Torcato
+  
 
 ## Milestones
 
