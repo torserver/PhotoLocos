@@ -120,7 +120,7 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 This is what we plan to export to another app.
 
-
+Please see the [examples](https://github.com/torserver/PhotoLocos/tree/master/examples) folder for the JSON schemas of this project.
 
 ## Team Memebers and Roles
 
