@@ -74,7 +74,7 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 **Given**: The user selects upload photo
 
-**When**: The user uploads a 100GB photo
+**When**: The user uploads a 10MB-100GB photo
 
 **Then**: The photo will be rejected as too large.
 
