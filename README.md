@@ -116,29 +116,29 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ### Class Diagram Description  
 
-**PhotoDirectoryController**: Controller class to handle endpoint requests.  
+- **PhotoDirectoryController**: Controller class to handle endpoint requests.  
 
-**EnterpriseApplication**: Starts and Runs our SpringBoot Project.
+- **EnterpriseApplication**: Starts and Runs our SpringBoot Project.
 
-**ServerInitializer**: Initializer class to handle azure/database deployment in future.
+- **ServerInitializer**: Initializer class to handle azure/database deployment in future.
 
-**Photo**: DTO class for our photo object, that holds most attributes representing a photograph, such as tag, type, rating and our Location class object.  
+- **Photo**: DTO class for our photo object, that holds most attributes representing a photograph, such as tag, type, rating and our Location class object.  
 
-**Location**: DTO class for our Location object, that holds most attributes representing a location for a Photo, such as longitude, latitude and string location names such as city and state.  
+- **Location**: DTO class for our Location object, that holds most attributes representing a location for a Photo, such as longitude, latitude and string location names such as city and state.  
 
-**IPhotoService**: Interface class that defines the core methods handling business logic, that is required to provide micro services to various endpoints.  
+- **IPhotoService**: Interface class that defines the core methods handling business logic, that is required to provide micro services to various endpoints.  
 
-**PhotoService**: Service class that implements IPhotoService, thus will be our final implementation of service class. Handles mot of the business logic and provides appropriate results for controller class to be functional or carry out its processes.  
+- **PhotoService**: Service class that implements IPhotoService, thus will be our final implementation of service class. Handles mot of the business logic and provides appropriate results for controller class to be functional or carry out its processes.  
 
-**PhotoServiceStub**: Service class that implements IPhotoService, but will be our hard coded implementation to test out initial functionality and requirements as they are being needed and created.  
+- **PhotoServiceStub**: Service class that implements IPhotoService, but will be our hard coded implementation to test out initial functionality and requirements as they are being needed and created.  
 
-**IPhotoDAO**: DAO Interface class, that defines the methods required to access an Photo object from datasource.  
+- **IPhotoDAO**: DAO Interface class, that defines the methods required to access an Photo object from datasource.  
 
-**PhotoDAO**: DAO class, that implements the IPhotoDAO, and provides functionality to access and return an legitimiate Photo Object.  
+- **PhotoDAO**: DAO class, that implements the IPhotoDAO, and provides functionality to access and return an legitimiate Photo Object.  
 
-**ILocationDAO**: DAO Interface class, that defines the methods required to access an Location object from datasource.  
+- **ILocationDAO**: DAO Interface class, that defines the methods required to access an Location object from datasource.  
 
-**LocationDAO**: DAO class, that implements the ILocationDAO, and provides functionality to access and return an legitimiate Location Object.  
+- **LocationDAO**: DAO class, that implements the ILocationDAO, and provides functionality to access and return an legitimiate Location Object.  
 
 ## JSON Schema
 
