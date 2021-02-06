@@ -112,7 +112,7 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ## Class Diagram
 
-![MyPlantDiaryClassDiagram](https://user-images.githubusercontent.com/2224876/93275565-40ecd880-f78b-11ea-8030-cd87987b1817.png)
+![PhotoLocoClassDiagram](https://user-images.githubusercontent.com/55965142/107127760-54a5f200-6886-11eb-904f-0164fc5c67e3.png)
 
 ### Class Diagram Description 
 
