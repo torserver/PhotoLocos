@@ -8,7 +8,7 @@ Users can interact with PhotoLocos using either a set of RESTful service endpoin
 
 ## Storyboard
 
-[Storyboard in Invision](https://projects.invisionapp.com/prototype/Plant-Diary-ck0bict0n005bqh01aaeu8tuu)
+[Storyboard in Invision](https://invis.io/SW105320EDV7)
 
 ## Requirements
 
