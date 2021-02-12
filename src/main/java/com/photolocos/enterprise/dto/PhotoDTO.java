@@ -21,6 +21,7 @@ public class PhotoDTO implements Serializable {
     private Date dateTaken;
     private int rating;
     private int id;
+    private int photoId;
 
     /*
      *
@@ -38,7 +39,7 @@ public class PhotoDTO implements Serializable {
 
     /**
      * Sets the file type of a photo object.
-     * @param fileType
+     * @param fileType, EX: png, jpg...
      */
     public void setFileType(String fileType) {
         this.fileType = fileType;
@@ -119,7 +120,7 @@ public class PhotoDTO implements Serializable {
 
     /**
      *
-     * @return id, unique ID of the photo.
+     * @return id, ID of the photo, linked to a location.
      */
     public int getId() {
         return id;
@@ -127,7 +128,7 @@ public class PhotoDTO implements Serializable {
 
     /**
      *
-     * @param id, unique ID of the photo.
+     * @param id, ID of the photo, linked to a location.
      */
     public void setId(int id) {
         this.id = id;
@@ -185,5 +186,21 @@ public class PhotoDTO implements Serializable {
     public String toString() {
         // TODO Auto-generated method stub
         return uri;
+    }
+
+    /**
+     *
+     * @return, returns the Unique ID of the photo
+     */
+    public int getPhotoId() {
+        return photoId;
+    }
+
+    /**
+     *
+     * @param photoId, the Unique ID of the photo
+     */
+    public void setPhotoId(int photoId) {
+        this.photoId = photoId;
     }
 }
