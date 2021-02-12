@@ -1,5 +1,7 @@
 package com.photolocos.enterprise.dto;
 
-public class LocationDTO {
+import java.io.Serializable;
+
+public class LocationDTO implements Serializable {
     //TODO: Add DTO information here
 }

@@ -1,14 +1,26 @@
 package com.photolocos.enterprise.dto;
 
-public class PhotoDTO {
 
-    //Fields, the attributes of the photos, if you will
+import java.io.Serializable;
+import java.util.Date;
+
+public class PhotoDTO implements Serializable {
+
+    /*
+     *
+     *  Fields, the attributes of the photos, if you will
+     *
+     */
 
     private String fileType;
-    private String[] tags;
     private String location;
     private String tips;
+    private String uri;
+    private String contributor;
+    private String[] tags;
+    private Date dateTaken;
     private int rating;
+    private int id;
 
     /*
      *
@@ -105,4 +117,73 @@ public class PhotoDTO {
         }
     }
 
+    /**
+     *
+     * @return id, unique ID of the photo.
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @param id, unique ID of the photo.
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    /**
+     *
+     * @return dateTaken, the date the photo was taken.
+     */
+    public Date getDateTaken() {
+        return dateTaken;
+    }
+
+    /**
+     *
+     * @param dateTaken, the date the photo was taken.
+     */
+    public void setDateTaken(Date dateTaken) {
+        this.dateTaken = dateTaken;
+    }
+
+    /**
+     *
+     * @return contributor, the user who took the photo.
+     */
+    public String getContributor() {
+        return contributor;
+    }
+
+    /**
+     *
+     * @param contributor, the user who took the photo.
+     */
+    public void setContributor(String contributor) {
+        this.contributor = contributor;
+    }
+
+    /**
+     *
+     * @return uri, the URI of the photo on the server.
+     */
+    public String getUri() {
+        return uri;
+    }
+
+    /**
+     *
+     * @param uri, the URI of the photo on the server.
+     */
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return uri;
+    }
 }
