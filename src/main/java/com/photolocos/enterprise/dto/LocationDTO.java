@@ -3,6 +3,12 @@ package com.photolocos.enterprise.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+
+
+/**
+ * @author Max Graman (gramanma@mail.uc.edu)
+ * TODO: JavaDoc.
+ */
 public class LocationDTO implements Serializable {
     /*
      *
