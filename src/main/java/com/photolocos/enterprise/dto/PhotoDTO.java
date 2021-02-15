@@ -203,4 +203,6 @@ public class PhotoDTO implements Serializable {
     public void setPhotoId(int photoId) {
         this.photoId = photoId;
     }
+
+
 }
