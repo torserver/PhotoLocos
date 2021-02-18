@@ -25,6 +25,18 @@
         "tips": {
           "type": "string",
           "description": "Tips to tell other photographers about the location"
+        },
+        "uri": {
+          "type": "string",
+          "description": "URI of the photo on the server."
+        },
+        "contributor": {
+          "type": "string",
+          "description": "The user that took the photo."
+        },
+        "date": {
+          "type": "date",
+          "description": "Date the photo was taken."
         }
       }
   }
