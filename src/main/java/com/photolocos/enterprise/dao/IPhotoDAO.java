@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
  *
- * PhotoDAO class to handle Photo related operations
+ * PhotoDAO interface declaring required operations
  */
 public interface IPhotoDAO {
 

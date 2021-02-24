@@ -16,6 +16,7 @@ public class PhotoDTO implements Serializable {
      *
      */
 
+    private String type;
     private String fileType;
     private String location;
     private String tips;
@@ -32,6 +33,22 @@ public class PhotoDTO implements Serializable {
      * Getters and Setters
      *
      */
+
+    /**
+     * Returns a string, the file type of a photo uploaded to the server.
+     * @return fileType in String format.
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * Sets the file type of a photo object.
+     * @param fileType, EX: png, jpg...
+     */
+    public void setType(String fileType) {
+        this.type = type;
+    }
 
     /**
      * Returns a string, the file type of a photo uploaded to the server.

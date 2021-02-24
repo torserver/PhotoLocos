@@ -2,10 +2,12 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
 
+import java.util.List;
+
 /**
  * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
  *
- * LocationDAO class to handle Location related operations
+ * LocationDAO interface declaring required operations
  */
 public interface ILocationDAO {
 
@@ -46,10 +48,10 @@ public interface ILocationDAO {
     LocationDTO fetchByArea(String state, String city);
 
     /**
-     * This method will return Location Object {@link LocationDTO} based on a description
+     * This method will return Location Objects {@link LocationDTO} based on a description
      * that users describes of what they are looking for
      * @param description A string or array of string that explains most components of location e.g. Snow Mountains, Salt Lakes, etc.
-     * @return the location object matching the description of a location
+     * @return a list of location objects matching the description of a location
      */
-    LocationDTO fetchByDescription(String description);
+    List<LocationDTO> fetchByDescription(String description);
 }
