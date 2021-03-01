@@ -27,7 +27,7 @@ public interface IPhotoDAO {
      * @param tags A array of list of keywords, used to return specific photos
      * @return A Set of photo objects if photos with similar tags are found, otherwise null
      */
-    Set<PhotoDTO> fetchByTag(List<String> tags);
+    Set<PhotoDTO> fetchByTag(String[] tags);
 
     /**
      * This method will return a Set of photo objects {@link PhotoDTO}, that have particular ratings

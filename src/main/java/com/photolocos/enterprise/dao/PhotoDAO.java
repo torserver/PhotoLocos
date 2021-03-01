@@ -23,7 +23,7 @@ public class PhotoDAO implements IPhotoDAO {
     }
 
     @Override
-    public Set<PhotoDTO> fetchByTag(List<String> tags) {
+    public Set<PhotoDTO> fetchByTag(String[] tags) {
         List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
 
