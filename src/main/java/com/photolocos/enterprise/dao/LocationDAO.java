@@ -2,7 +2,6 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,8 +14,9 @@ import java.util.Map;
  */
 @Component
 public class LocationDAO implements ILocationDAO {
-
     private Map<Integer, LocationDTO> locations = new HashMap<>();
+    private LocationDTO neededLocation = new LocationDTO();
+    private List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
 
     @Override
     public boolean createEntry(LocationDTO locationDTO) {
@@ -44,9 +44,6 @@ public class LocationDAO implements ILocationDAO {
 
     @Override
     public LocationDTO fetchByCoordinates(String longitude, String latitude) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
-        LocationDTO neededLocation = new LocationDTO();
-
         for (LocationDTO loc : locationsCollection) {
             if (loc.getLatitude().equals(latitude) && loc.getLongitude().equals(longitude)) {
                 neededLocation = loc;
@@ -57,9 +54,6 @@ public class LocationDAO implements ILocationDAO {
 
     @Override
     public LocationDTO fetchByArea(String state, String city) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
-        LocationDTO neededLocation = new LocationDTO();
-
         for (LocationDTO loc : locationsCollection) {
             if (loc.getState().equals(state) && loc.getCity().equals(city)) {
                 neededLocation = loc;
@@ -71,7 +65,6 @@ public class LocationDAO implements ILocationDAO {
 
     @Override
     public List<LocationDTO> fetchByDescription(String description) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         List<LocationDTO> matchingLocations = new ArrayList<>();
 
         for (LocationDTO loc : locationsCollection) {

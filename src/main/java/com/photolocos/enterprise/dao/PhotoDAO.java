@@ -2,7 +2,6 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.stereotype.Component;
-
 import java.util.*;
 
 /**
@@ -12,11 +11,12 @@ import java.util.*;
  */
 @Component
 public class PhotoDAO implements IPhotoDAO {
-
     Map<Integer, PhotoDTO> photos = new HashMap<>();
+    private Set<PhotoDTO> matchedPhotos = new HashSet<>();
+    private List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
 
     @Override
-    public boolean createEntry(PhotoDTO photoDTO) throws Exception {
+    public boolean createEntry(PhotoDTO photoDTO) {
         photos.put(photoDTO.getPhotoId(), photoDTO);
         if (photos.containsKey(photoDTO.getPhotoId())) return true;
         return false;
@@ -24,9 +24,6 @@ public class PhotoDAO implements IPhotoDAO {
 
     @Override
     public Set<PhotoDTO> fetchByTag(List<String> tags) {
-        List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
-        Set<PhotoDTO> matchedPhotos = new HashSet<>();
-
         for (PhotoDTO photo : photosCollection) {
             Set<String> tagsSet = new HashSet<>(Arrays.asList(photo.getTags()));
             for (String tag: tags) {
@@ -42,9 +39,6 @@ public class PhotoDAO implements IPhotoDAO {
 
     @Override
     public Set<PhotoDTO> fetchByRating(int rating) {
-        List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
-        Set<PhotoDTO> matchedPhotos = new HashSet<>();
-
         for (PhotoDTO photo : photosCollection) {
                 if (photo.getRating() == rating) {
                     matchedPhotos.add(photo);
@@ -56,9 +50,6 @@ public class PhotoDAO implements IPhotoDAO {
 
     @Override
     public Set<PhotoDTO> fetchByType(String type) {
-        List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
-        Set<PhotoDTO> matchedPhotos = new HashSet<>();
-
         for (PhotoDTO photo : photosCollection) {
             if (photo.getType().equals(type)) {
                 matchedPhotos.add(photo);
