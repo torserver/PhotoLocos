@@ -9,7 +9,7 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
-public class LocationDTO implements Serializable {
+public class Location implements Serializable {
     /*
      *
      *  Fields, the attributes of the photos, if you will

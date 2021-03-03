@@ -8,7 +8,7 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
-public class PhotoDTO implements Serializable {
+public class Photo implements Serializable {
 
     /*
      *

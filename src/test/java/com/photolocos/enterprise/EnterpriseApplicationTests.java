@@ -2,26 +2,25 @@ package com.photolocos.enterprise;
 
 import com.photolocos.enterprise.dao.ILocationDAO;
 import com.photolocos.enterprise.dao.IPhotoDAO;
-import com.photolocos.enterprise.dao.PhotoDAO;
-import com.photolocos.enterprise.dto.PhotoDTO;
+import com.photolocos.enterprise.dto.Photo;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
-
-import static com.photolocos.enterprise.dao.PhotoDAO.*;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
 
-    private PhotoDTO photo = new PhotoDTO();
+    private Photo photo = new Photo();
+    private HashSet<Photo> photoSet = new HashSet<Photo>(Arrays.asList(new Photo[]{photo}));
 
     @MockBean
     private ILocationDAO locationDAO;
+    @MockBean
     private IPhotoDAO photoDAO;
 
 
@@ -40,23 +39,25 @@ class EnterpriseApplicationTests {
     private void whenPhotoAddedWithTagRiver() {
         String[] tags = {"river"};
         photo.setTags(tags);
-        Mockito.when(photoDAO.fetchByTag(tags)).thenReturn((Set<PhotoDTO>) photo);
+
+        Mockito.when(photoDAO.fetchByTag(tags)).thenReturn(photoSet);
     }
 
-    private void givenPhotoDataAreAvailable() {
-        //Mockito.when(PhotoDAO.save(photo)).thenReturn(photo);
-        /**
-         * Save method not yet created in PhotoDAO
-         * */
-        photoDAO.save(photo);
+    private void givenPhotoDataAreAvailable() throws Exception {
+        Mockito.when(photoDAO.createEntry(photo)).thenReturn(true);
+
+        photoDAO.createEntry(photo);
     }
 
     private void whenSearchPhotoWithTagRiver() {
         String[] tag = {"river"};
-        photo = (PhotoDTO) photoDAO.fetchByTag(tag);
+
+        Mockito.when(photoDAO.fetchByTag(tag)).thenReturn(photoSet);
+
+        Set<Photo> photos = photoDAO.fetchByTag(tag);
     }
 
-    private PhotoDTO thenReturnPhotosWithTagRiver() {
+    private Photo thenReturnPhotosWithTagRiver() {
         return photo;
     }
 
