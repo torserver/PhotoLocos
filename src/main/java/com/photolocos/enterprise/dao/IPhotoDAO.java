@@ -55,4 +55,12 @@ public interface IPhotoDAO {
      * TODO: Discuss with team, whether to change this to fetch all by Specific User/Contributor (if accounts are integrated in future)
      */
     Map<Integer, Photo> fetchAll();
+
+    /**
+     * This method returns all photos whose location matches the given location String
+     *
+     * @param location String to query all photo locations against
+     * @return A set of photo object with location matching the given location String
+     */
+    Set<Photo>  fetchByLocation(String location);
 }

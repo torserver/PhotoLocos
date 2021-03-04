@@ -4,23 +4,19 @@ import com.photolocos.enterprise.dao.ILocationDAO;
 import com.photolocos.enterprise.dao.IPhotoDAO;
 import com.photolocos.enterprise.dto.Photo;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.util.Assert;
 
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
 
-    private Photo photo = new Photo();
-    private HashSet<Photo> photoSet = new HashSet<Photo>(Arrays.asList(new Photo[]{photo}));
-
-    @MockBean
+    @Autowired
     private ILocationDAO locationDAO;
-    @MockBean
+    @Autowired
     private IPhotoDAO photoDAO;
 
 
@@ -29,36 +25,64 @@ class EnterpriseApplicationTests {
     }
 
     @Test
+    void userSearchesLocation_returnsPhotoResults() throws Exception {
+        givenPhotoWithStateLocationExists();
+        returnsPhotoResults(userSearchesLocation());
+    }
+
+    private void givenPhotoWithStateLocationExists() throws Exception {
+        Photo photo = new Photo();
+        photo.setLocation("Ohio");
+        photoDAO.createEntry(photo);
+    }
+
+    private Set<Photo> userSearchesLocation() {
+        return photoDAO.fetchByLocation("Ohio");
+    }
+
+    private void returnsPhotoResults(Set<Photo> results) {
+        Assert.notNull(results, "Photo search results returned null");
+        Assert.notEmpty(results, "Photo search results returned empty set.");
+
+        boolean locationMatches = true;
+        for(Photo photo: results){
+            if(!photo.getLocation().equals("Ohio")){
+                locationMatches = false;
+            }
+        }
+
+        Assert.isTrue(locationMatches, "Photo search returned an incorrect result set.");
+    }
+
+    @Test
     void fetchPhotoByTag_returnsRiverForTagRiver() throws Exception {
-        givenPhotoDataAreAvailable();
         whenPhotoAddedWithTagRiver();
-        whenSearchPhotoWithTagRiver();
-        thenReturnPhotosWithTagRiver();
+        thenReturnPhotosWithTagRiver(whenSearchPhotoWithTagRiver());
     }
 
-    private void whenPhotoAddedWithTagRiver() {
-        String[] tags = {"river"};
-        photo.setTags(tags);
-
-        Mockito.when(photoDAO.fetchByTag(tags)).thenReturn(photoSet);
-    }
-
-    private void givenPhotoDataAreAvailable() throws Exception {
-        Mockito.when(photoDAO.createEntry(photo)).thenReturn(true);
+    private void whenPhotoAddedWithTagRiver() throws Exception {
+        Photo photo = new Photo();
+        photo.setTags(new String[]{"river"});
 
         photoDAO.createEntry(photo);
     }
 
-    private void whenSearchPhotoWithTagRiver() {
-        String[] tag = {"river"};
-
-        Mockito.when(photoDAO.fetchByTag(tag)).thenReturn(photoSet);
-
-        Set<Photo> photos = photoDAO.fetchByTag(tag);
+    private Set<Photo> whenSearchPhotoWithTagRiver() {
+        return photoDAO.fetchByTag(new String[]{"river"});
     }
 
-    private Photo thenReturnPhotosWithTagRiver() {
-        return photo;
+    private void thenReturnPhotosWithTagRiver(Set<Photo> results) {
+        Assert.notNull(results, "Photo search results returned null");
+        Assert.notEmpty(results, "Photo search results returned empty set.");
+
+        boolean photosMatch = true;
+        for(Photo photo: results){
+            if(!Arrays.asList(photo.getTags()).contains("river")){
+                photosMatch = false;
+            }
+        }
+
+        Assert.isTrue(photosMatch, "Photo search returned an incorrect result set.");
     }
 
 

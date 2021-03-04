@@ -72,4 +72,18 @@ public class PhotoDAOStub implements IPhotoDAO {
     public Map<Integer, Photo> fetchAll() {
         return photos;
     }
+
+    @Override
+    public Set<Photo> fetchByLocation(String location) {
+        List<Photo> photosCollection = new ArrayList<>(photos.values());
+        Set<Photo> matchedPhotos = new HashSet<>();
+
+        for (Photo photo : photosCollection) {
+            if (photo.getLocation().equals(location)) {
+                matchedPhotos.add(photo);
+            }
+        }
+
+        return matchedPhotos;
+    }
 }
