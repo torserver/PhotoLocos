@@ -2,6 +2,7 @@ package com.photolocos.enterprise;
 
 import com.photolocos.enterprise.dao.ILocationDAO;
 import com.photolocos.enterprise.dao.IPhotoDAO;
+import com.photolocos.enterprise.dto.Location;
 import com.photolocos.enterprise.dto.Photo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,10 @@ class EnterpriseApplicationTests {
 
     private void givenPhotoWithStateLocationExists() throws Exception {
         Photo photo = new Photo();
-        photo.setLocation("Ohio");
+        Location location = new Location();
+        location.setState("Ohio");
+
+        photo.setLocation(location);
         photoDAO.createEntry(photo);
     }
 
@@ -46,8 +50,9 @@ class EnterpriseApplicationTests {
 
         boolean locationMatches = true;
         for(Photo photo: results){
-            if(!photo.getLocation().equals("Ohio")){
+            if(!photo.getLocation().getState().equals("Ohio")){
                 locationMatches = false;
+                break;
             }
         }
 

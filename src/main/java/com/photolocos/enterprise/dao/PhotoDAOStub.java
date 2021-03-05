@@ -79,7 +79,7 @@ public class PhotoDAOStub implements IPhotoDAO {
         Set<Photo> matchedPhotos = new HashSet<>();
 
         for (Photo photo : photosCollection) {
-            if (photo.getLocation().equals(location)) {
+            if (photo.getLocation().getState().equals(location)) {
                 matchedPhotos.add(photo);
             }
         }
