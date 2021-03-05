@@ -7,7 +7,17 @@ import java.util.Date;
 
 /**
  * @author Max Graman (gramanma@mail.uc.edu)
- * TODO: JavaDoc.
+ * type: Type of photo
+ * fileType: format of photo (eg. png, jpeg, etc.)
+ * location: Location where photo was clicked
+ * tips: General tips
+ * uri: URI of a particular photo
+ * contributor: Photgrapher name
+ * tags: Tags describing the photo
+ * dateTaken: Date on which the photo was clicked
+ * rating: Rating between the range of 1-5
+ * id: Location ID
+ * photoId: Photo ID
  */
 public @Data
 class PhotoDTO implements Serializable {

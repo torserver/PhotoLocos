@@ -5,7 +5,16 @@ import java.io.Serializable;
 
 /**
  * @author Max Graman (gramanma@mail.uc.edu)
- * TODO: JavaDoc.
+ *
+ * longitude: Stores Longitude of photo location
+ * latitude: Stores Longitude of photo location
+ * country: Stores Country name
+ * state: Store name of the particular state
+ * city: Stores name of the city
+ * area: store area of the photo location
+ * description: Stores description of the location/area
+ * id: photo ID
+ * locationId: Location ID
  */
 public @Data
 class LocationDTO implements Serializable {
