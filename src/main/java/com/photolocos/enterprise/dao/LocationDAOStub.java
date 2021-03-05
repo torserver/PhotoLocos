@@ -1,6 +1,6 @@
 package com.photolocos.enterprise.dao;
 
-import com.photolocos.enterprise.dto.LocationDTO;
+import com.photolocos.enterprise.dto.Location;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -14,21 +14,21 @@ import java.util.Map;
  * LocationDAO class to handle Location related operations
  */
 @Component
-public class LocationDAO implements ILocationDAO {
+public class LocationDAOStub implements ILocationDAO {
 
-    private Map<Integer, LocationDTO> locations = new HashMap<>();
+    private Map<Integer, Location> locations = new HashMap<>();
 
     @Override
-    public boolean createEntry(LocationDTO locationDTO) {
-        locations.put(locationDTO.getLocationId(), locationDTO);
-        if (locations.containsKey(locationDTO.getLocationId())) return true;
+    public boolean createEntry(Location location) {
+        locations.put(location.getLocationId(), location);
+        if (locations.containsKey(location.getLocationId())) return true;
 
         return false;
     }
 
     @Override
-    public LocationDTO fetchUserLocation() {
-        LocationDTO userLocation = new LocationDTO();
+    public Location fetchUserLocation() {
+        Location userLocation = new Location();
         userLocation.setLongitude("84.51");
         userLocation.setLatitude("39.10");
         userLocation.setCountry("USA");
@@ -43,11 +43,11 @@ public class LocationDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByCoordinates(String longitude, String latitude) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
-        LocationDTO neededLocation = new LocationDTO();
+    public Location fetchByCoordinates(String longitude, String latitude) {
+        List<Location> locationsCollection = new ArrayList<>(locations.values());
+        Location neededLocation = new Location();
 
-        for (LocationDTO loc : locationsCollection) {
+        for (Location loc : locationsCollection) {
             if (loc.getLatitude().equals(latitude) && loc.getLongitude().equals(longitude)) {
                 neededLocation = loc;
             }
@@ -56,11 +56,11 @@ public class LocationDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByArea(String state, String city) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
-        LocationDTO neededLocation = new LocationDTO();
+    public Location fetchByArea(String state, String city) {
+        List<Location> locationsCollection = new ArrayList<>(locations.values());
+        Location neededLocation = new Location();
 
-        for (LocationDTO loc : locationsCollection) {
+        for (Location loc : locationsCollection) {
             if (loc.getState().equals(state) && loc.getCity().equals(city)) {
                 neededLocation = loc;
             }
@@ -70,11 +70,11 @@ public class LocationDAO implements ILocationDAO {
     }
 
     @Override
-    public List<LocationDTO> fetchByDescription(String description) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
-        List<LocationDTO> matchingLocations = new ArrayList<>();
+    public List<Location> fetchByDescription(String description) {
+        List<Location> locationsCollection = new ArrayList<>(locations.values());
+        List<Location> matchingLocations = new ArrayList<>();
 
-        for (LocationDTO loc : locationsCollection) {
+        for (Location loc : locationsCollection) {
             if (loc.getDescription().contains(description) ) {
                 matchingLocations.add(loc);
             }

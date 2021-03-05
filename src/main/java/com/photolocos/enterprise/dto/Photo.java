@@ -8,7 +8,7 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
-public class PhotoDTO implements Serializable {
+public class Photo implements Serializable {
 
     /*
      *
@@ -18,7 +18,7 @@ public class PhotoDTO implements Serializable {
 
     private String type;
     private String fileType;
-    private String location;
+    private Location location;
     private String tips;
     private String uri;
     private String contributor;
@@ -86,7 +86,7 @@ public class PhotoDTO implements Serializable {
      * Returns a string for a given photo.
      * @return location, common name (EX: Cincinnati, OH)
      */
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
 
@@ -94,7 +94,7 @@ public class PhotoDTO implements Serializable {
      * Sets a location for a given photo.
      * @param location is NOT a location Object (EX: Cincinnati, OH).
      */
-    public void setLocation(String location) {
+    public void setLocation(Location location) {
         this.location = location;
     }
 
