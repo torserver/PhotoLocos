@@ -55,4 +55,6 @@ public interface IPhotoDAO {
      * TODO: Discuss with team, whether to change this to fetch all by Specific User/Contributor (if accounts are integrated in future)
      */
     Map<Integer, PhotoDTO> fetchAll();
+
+    void save(PhotoDTO photo);
 }
