@@ -72,4 +72,9 @@ public class PhotoDAO implements IPhotoDAO {
     public Map<Integer, PhotoDTO> fetchAll() {
         return photos;
     }
+
+    @Override
+    public void save(PhotoDTO photo) {
+
+    }
 }
