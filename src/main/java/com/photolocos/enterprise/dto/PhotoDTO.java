@@ -1,6 +1,8 @@
 package com.photolocos.enterprise.dto;
 
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,7 +10,8 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
-public class PhotoDTO implements Serializable {
+public @Data
+class PhotoDTO implements Serializable {
 
     /*
      *
