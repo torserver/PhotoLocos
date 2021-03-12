@@ -1,4 +1,4 @@
-package com.photolocos.enterprise;
+package com.photolocos.enterprise.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
