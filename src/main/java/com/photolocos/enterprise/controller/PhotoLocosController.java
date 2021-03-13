@@ -4,15 +4,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping("/")
 public class PhotoLocosController {
 
     /**
      * Handle the "/" endpoint
-     * @return start.html
+     * @return index.html
      */
-    @RequestMapping("/")
-    public String index() {
-        return "start";
+    public String main() {
+        return "index";
     }
 
 }
