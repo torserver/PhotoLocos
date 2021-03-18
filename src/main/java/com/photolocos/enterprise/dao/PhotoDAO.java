@@ -18,7 +18,7 @@ public class PhotoDAO implements IPhotoDAO {
     @Override
     public boolean createEntry(PhotoDTO photoDTO) throws Exception {
         photos.put(photoDTO.getPhotoId(), photoDTO);
-        if (photos.containsKey(photoDTO.getPhotoId())) return true;
+//        if (photos.containsKey(photoDTO.getPhotoId())) return true;
         return false;
     }
 
@@ -32,7 +32,7 @@ public class PhotoDAO implements IPhotoDAO {
             for (String tag: tags) {
                 if (tagsSet.contains(tag)) {
                     matchedPhotos.add(photo);
-                    continue;
+                    break;
                 }
             }
         }
@@ -76,5 +76,10 @@ public class PhotoDAO implements IPhotoDAO {
     @Override
     public void save(PhotoDTO photo) {
 
+    }
+
+    @Override
+    public Set<PhotoDTO> fetchByLocation(String ohio) {
+        return null;
     }
 }

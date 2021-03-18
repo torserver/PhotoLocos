@@ -57,4 +57,12 @@ public interface IPhotoDAO {
     Map<Integer, PhotoDTO> fetchAll();
 
     void save(PhotoDTO photo);
+
+    /**
+     * This method returns all photos whose location matches the given location String
+     *
+     * @param location String to query all photo locations against
+     * @return A set of photo object with location matching the given location String
+     */
+    Set<PhotoDTO> fetchByLocation(String location);
 }
