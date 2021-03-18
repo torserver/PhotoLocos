@@ -23,6 +23,7 @@ import static com.photolocos.enterprise.dao.PhotoDAO.*;
 class EnterpriseApplicationTests {
 
     private PhotoDTO photo = new PhotoDTO();
+    private LocationDTO location = new LocationDTO();
 
     @MockBean
     @Autowired
@@ -42,10 +43,7 @@ class EnterpriseApplicationTests {
 //    }
 //
 //    private void givenPhotoWithStateLocationExists() throws Exception {
-//        PhotoDTO photo = new PhotoDTO();
-//        LocationDTO location = new LocationDTO();
 //        location.setState("Ohio");
-//
 //        photo.setLocation(location);
 //        photoDAO.createEntry(photo);
 //    }
@@ -68,7 +66,6 @@ class EnterpriseApplicationTests {
 //
 //        Assert.isTrue(locationMatches, "Photo search returned an incorrect result set.");
 //    }
-
 
 
     @Test
