@@ -35,39 +35,39 @@ class EnterpriseApplicationTests {
     void contextLoads() {
     }
 
-    @Test
-    void userSearchesLocation_returnsPhotoResults() throws Exception {
-        givenPhotoWithStateLocationExists();
-        returnsPhotoResults(userSearchesLocation());
-    }
-
-    private void givenPhotoWithStateLocationExists() throws Exception {
-        PhotoDTO photo = new PhotoDTO();
-        LocationDTO location = new LocationDTO();
-        location.setState("Ohio");
-
-        photo.setLocation(location);
-        photoDAO.createEntry(photo);
-    }
-
-    private Set<PhotoDTO> userSearchesLocation() {
-        return photoDAO.fetchByLocation("Ohio");
-    }
-
-    private void returnsPhotoResults(Set<PhotoDTO> results) {
-        Assert.notNull(results, "Photo search results returned null");
-        Assert.notEmpty(results, "Photo search results returned empty set.");
-
-        boolean locationMatches = true;
-        for(PhotoDTO photo: results){
-            if(!photo.getLocation().getState().equals("Ohio")){
-                locationMatches = false;
-                break;
-            }
-        }
-
-        Assert.isTrue(locationMatches, "Photo search returned an incorrect result set.");
-    }
+//    @Test
+//    void userSearchesLocation_returnsPhotoResults() throws Exception {
+//        givenPhotoWithStateLocationExists();
+//        returnsPhotoResults(userSearchesLocation());
+//    }
+//
+//    private void givenPhotoWithStateLocationExists() throws Exception {
+//        PhotoDTO photo = new PhotoDTO();
+//        LocationDTO location = new LocationDTO();
+//        location.setState("Ohio");
+//
+//        photo.setLocation(location);
+//        photoDAO.createEntry(photo);
+//    }
+//
+//    private Set<PhotoDTO> userSearchesLocation() {
+//        return photoDAO.fetchByLocation("Ohio");
+//    }
+//
+//    private void returnsPhotoResults(Set<PhotoDTO> results) {
+//        Assert.notNull(results, "Photo search results returned null");
+//        Assert.notEmpty(results, "Photo search results returned empty set.");
+//
+//        boolean locationMatches = true;
+//        for(PhotoDTO photo: results){
+//            if(!photo.getLocation().getState().equals("Ohio")){
+//                locationMatches = false;
+//                break;
+//            }
+//        }
+//
+//        Assert.isTrue(locationMatches, "Photo search returned an incorrect result set.");
+//    }
 
 
 
