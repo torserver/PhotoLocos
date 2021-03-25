@@ -1,3 +1,4 @@
+
 .row1{
     height: 100px;
     background-color: #1bf2bf;
@@ -59,6 +60,8 @@
 .grid-row .grid-column img:hover{
     filter: grayscale(0) brightness(1);
 }
+
+
 
 @media only screen and (max-width: 800px) {
     .grid-row .grid-column {
