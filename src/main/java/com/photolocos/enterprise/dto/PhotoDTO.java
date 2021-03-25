@@ -1,6 +1,8 @@
 package com.photolocos.enterprise.dto;
 
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,7 +10,8 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
-public class PhotoDTO implements Serializable {
+public @Data
+class PhotoDTO implements Serializable {
 
     /*
      *
@@ -18,7 +21,7 @@ public class PhotoDTO implements Serializable {
 
     private String type;
     private String fileType;
-    private String location;
+    private LocationDTO location;
     private String tips;
     private String uri;
     private String contributor;
@@ -47,7 +50,7 @@ public class PhotoDTO implements Serializable {
      * @param fileType, EX: png, jpg...
      */
     public void setType(String fileType) {
-        this.type = type;
+        this.type = fileType;
     }
 
     /**
@@ -86,7 +89,7 @@ public class PhotoDTO implements Serializable {
      * Returns a string for a given photo.
      * @return location, common name (EX: Cincinnati, OH)
      */
-    public String getLocation() {
+    public LocationDTO getLocation() {
         return location;
     }
 
@@ -94,7 +97,7 @@ public class PhotoDTO implements Serializable {
      * Sets a location for a given photo.
      * @param location is NOT a location Object (EX: Cincinnati, OH).
      */
-    public void setLocation(String location) {
+    public void setLocation(LocationDTO location) {
         this.location = location;
     }
 
