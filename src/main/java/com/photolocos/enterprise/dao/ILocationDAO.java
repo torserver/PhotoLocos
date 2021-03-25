@@ -15,11 +15,10 @@ public interface ILocationDAO {
      * This method is used to create an entry in Database, if there isn't one already
      *
      * @param locationDTO The Location {@link LocationDTO} object to be saved
-     * @return True if entry was successfully created, false in any other scenario
      * @throws Exception Any exception that could occur as a result of failure to create a entry
      * in database or other preferred storage
      */
-    boolean createEntry(LocationDTO locationDTO);
+    void createEntry(LocationDTO locationDTO);
 
     /**
      * This method tries to get user's current approximate geographical location

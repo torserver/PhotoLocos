@@ -19,11 +19,8 @@ public class LocationDAO implements ILocationDAO {
     private Map<Integer, LocationDTO> locations = new HashMap<>();
 
     @Override
-    public boolean createEntry(LocationDTO locationDTO) {
+    public void createEntry(LocationDTO locationDTO) {
         locations.put(locationDTO.getLocationId(), locationDTO);
-        if (locations.containsKey(locationDTO.getLocationId())) return true;
-
-        return false;
     }
 
     @Override
