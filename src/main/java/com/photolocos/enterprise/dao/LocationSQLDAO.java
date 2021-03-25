@@ -1,0 +1,39 @@
+package com.photolocos.enterprise.dao;
+
+import com.photolocos.enterprise.dto.LocationDTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository("locationDAO")
+public class LocationSQLDAO implements ILocationDAO {
+
+    @Autowired
+    LocationRepository locationRepository;
+
+    @Override
+    public void createEntry(LocationDTO locationDTO) {
+        LocationDTO createdLocation = locationRepository.save(locationDTO);
+    }
+
+    @Override
+    public LocationDTO fetchUserLocation() {
+        return null;
+    }
+
+    @Override
+    public LocationDTO fetchByCoordinates(String longitude, String latitude) {
+        return null;
+    }
+
+    @Override
+    public LocationDTO fetchByArea(String state, String city) {
+        return null;
+    }
+
+    @Override
+    public List<LocationDTO> fetchByDescription(String description) {
+        return null;
+    }
+}

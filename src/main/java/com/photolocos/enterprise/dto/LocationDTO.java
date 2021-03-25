@@ -1,5 +1,10 @@
 package com.photolocos.enterprise.dto;
 import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,12 +14,17 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
+@Entity
 public @Data class LocationDTO implements Serializable {
     /*
      *
      *  Fields, the attributes of the photos, if you will
      *
      */
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
 
     private String longitude;
     private String latitude;
@@ -23,7 +33,8 @@ public @Data class LocationDTO implements Serializable {
     private String city;
     private String area;
     private String description;
-    private int id;
+
+
     private int locationId;
 
     /*

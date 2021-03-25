@@ -3,6 +3,10 @@ package com.photolocos.enterprise.dto;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,6 +14,7 @@ import java.util.Date;
  * @author Max Graman (gramanma@mail.uc.edu)
  * TODO: JavaDoc.
  */
+@Entity
 public @Data
 class PhotoDTO implements Serializable {
 
@@ -19,16 +24,20 @@ class PhotoDTO implements Serializable {
      *
      */
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
     private String type;
     private String fileType;
-    private LocationDTO location;
+    private String location;
     private String tips;
     private String uri;
     private String contributor;
-    private String[] tags;
+    private String tags;
     private Date dateTaken;
     private int rating;
-    private int id;
+
     private int photoId;
 
     /*
@@ -39,6 +48,7 @@ class PhotoDTO implements Serializable {
 
     /**
      * Returns a string, the file type of a photo uploaded to the server.
+     *
      * @return fileType in String format.
      */
     public String getType() {
@@ -47,6 +57,7 @@ class PhotoDTO implements Serializable {
 
     /**
      * Sets the file type of a photo object.
+     *
      * @param fileType, EX: png, jpg...
      */
     public void setType(String fileType) {
@@ -55,6 +66,7 @@ class PhotoDTO implements Serializable {
 
     /**
      * Returns a string, the file type of a photo uploaded to the server.
+     *
      * @return fileType in String format.
      */
     public String getFileType() {
@@ -63,6 +75,7 @@ class PhotoDTO implements Serializable {
 
     /**
      * Sets the file type of a photo object.
+     *
      * @param fileType, EX: png, jpg...
      */
     public void setFileType(String fileType) {
@@ -71,38 +84,43 @@ class PhotoDTO implements Serializable {
 
     /**
      * Returns an Array[] of tags for a given photo.
+     *
      * @return tags, EX: { funny, cool, nice, stocks, to, the, moon }
      */
-    public String[] getTags() {
+    public String getTags() {
         return tags;
     }
 
     /**
      * Sets an Array[] of tags for a given photo.
+     *
      * @param tags, EX: { funny, cool, nice, stocks, to, the, moon, poggers }
      */
-    public void setTags(String[] tags) {
+    public void setTags(String tags) {
         this.tags = tags;
     }
 
     /**
      * Returns a string for a given photo.
+     *
      * @return location, common name (EX: Cincinnati, OH)
      */
-    public LocationDTO getLocation() {
+    public String getLocation() {
         return location;
     }
 
     /**
      * Sets a location for a given photo.
+     *
      * @param location is NOT a location Object (EX: Cincinnati, OH).
      */
-    public void setLocation(LocationDTO location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
     /**
      * Returns the tips for a given photo
+     *
      * @return tips
      */
     public String getTips() {
@@ -111,6 +129,7 @@ class PhotoDTO implements Serializable {
 
     /**
      * Sets the tips for a given photo.
+     *
      * @param tips is NOT an array
      */
     public void setTips(String tips) {
@@ -119,6 +138,7 @@ class PhotoDTO implements Serializable {
 
     /**
      * Gets the rating for a given photo.
+     *
      * @return rating.
      */
     public int getRating() {
@@ -128,6 +148,7 @@ class PhotoDTO implements Serializable {
     /**
      * Sets the rating for a given photo.
      * Also contains some back end logic needed.
+     *
      * @param rating 1-5.
      */
     public void setRating(int rating) {
@@ -143,7 +164,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @return id, ID of the photo, linked to a location.
      */
     public int getId() {
@@ -151,7 +171,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @param id, ID of the photo, linked to a location.
      */
     public void setId(int id) {
@@ -159,7 +178,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @return dateTaken, the date the photo was taken.
      */
     public Date getDateTaken() {
@@ -167,7 +185,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @param dateTaken, the date the photo was taken.
      */
     public void setDateTaken(Date dateTaken) {
@@ -175,7 +192,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @return contributor, the user who took the photo.
      */
     public String getContributor() {
@@ -183,7 +199,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @param contributor, the user who took the photo.
      */
     public void setContributor(String contributor) {
@@ -191,7 +206,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @return uri, the URI of the photo on the server.
      */
     public String getUri() {
@@ -199,7 +213,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @param uri, the URI of the photo on the server.
      */
     public void setUri(String uri) {
@@ -213,7 +226,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @return, returns the Unique ID of the photo
      */
     public int getPhotoId() {
@@ -221,7 +233,6 @@ class PhotoDTO implements Serializable {
     }
 
     /**
-     *
      * @param photoId, the Unique ID of the photo
      */
     public void setPhotoId(int photoId) {
