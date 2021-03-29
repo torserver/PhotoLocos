@@ -15,20 +15,10 @@ import java.util.Set;
 public class PhotoService implements IPhotoService{
     private IPhotoDAO photoDAO;
     PhotoDTO photo = new PhotoDTO();
-    HashSet<PhotoDTO> photos = new HashSet<PhotoDTO>();
+    Set<PhotoDTO> photos = new HashSet<PhotoDTO>();
 
     public PhotoService(IPhotoDAO photoDAO) {
         this.photoDAO = photoDAO;
-    }
-
-    @Override
-    public PhotoDTO fetchByLocation(String locationId) {
-        return null;
-    }
-
-    @Override
-    public Set<PhotoDTO> fetchByTag(String tag) {
-        return null;
     }
 
     @Override
@@ -46,17 +36,30 @@ public class PhotoService implements IPhotoService{
     }
 
     @Override
+    public PhotoDTO fetchByLocation(String locationId) {
+        photo = photoDAO.fetchByLocation(Integer.parseInt(locationId));
+        return photo;
+    }
+
+    @Override
+    public Set<PhotoDTO> fetchByTag(String tag) {
+        photos = photoDAO.fetchByTag(new String[]{tag});
+        return photos;
+    }
+
+    @Override
     public Set<PhotoDTO> fetchAll() {
-        return null;
+        return photoDAO.fetchAll();
     }
 
     @Override
     public Set<PhotoDTO> fetchPhotoByCity(String city) {
-        return null;
+        return photos;
     }
 
     @Override
     public Set<LocationDTO> fetchLocationByCity(String city) {
-        return null;
+        HashSet<LocationDTO> locations = new HashSet<LocationDTO>();
+        return locations;
     }
 }
