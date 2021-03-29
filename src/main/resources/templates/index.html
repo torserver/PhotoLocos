@@ -9,6 +9,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Bootstrap CSS Used for Image Grid -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css/">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 
     <!-- Bootstrap JS Scripts -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -94,5 +95,22 @@
         </div>
     </div>
     <!-- Image Grid Section -->
+
+    <!-- More Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.4.0/dropzone.js' type='text/javascript'></script>
+
+    <script>
+        Dropzone.autoDiscover = false;
+
+        var myDropzone = new Dropzone(".dropzone", {
+            autoProcessQueue: false,
+            parallelUploads: 1 // Number of files process at a time (default 2)
+        });
+
+        $('#uploadfiles').click(function () {
+            myDropzone.processQueue();
+        });
+    </script>
 </body>
 </html>
