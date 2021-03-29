@@ -3,10 +3,7 @@ package com.photolocos.enterprise.dto;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,6 +12,7 @@ import java.util.Date;
  * TODO: JavaDoc.
  */
 @Entity
+@Table(name="photos")
 public @Data
 class PhotoDTO implements Serializable {
 
@@ -30,13 +28,17 @@ class PhotoDTO implements Serializable {
 
     private String type;
     private String fileType;
-    private String location;
+    private String filePath;
     private String tips;
     private String uri;
     private String contributor;
     private String tags;
     private Date dateTaken;
     private int rating;
+
+    @OneToOne
+    @JoinColumn(name="id")
+    private LocationDTO location;
 
     private int photoId;
 
@@ -105,7 +107,7 @@ class PhotoDTO implements Serializable {
      *
      * @return location, common name (EX: Cincinnati, OH)
      */
-    public String getLocation() {
+    public LocationDTO getLocation() {
         return location;
     }
 
@@ -114,7 +116,7 @@ class PhotoDTO implements Serializable {
      *
      * @param location is NOT a location Object (EX: Cincinnati, OH).
      */
-    public void setLocation(String location) {
+    public void setLocation(LocationDTO location) {
         this.location = location;
     }
 

@@ -1,10 +1,7 @@
 package com.photolocos.enterprise.dto;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,7 +12,9 @@ import java.util.Date;
  * TODO: JavaDoc.
  */
 @Entity
-public @Data class LocationDTO implements Serializable {
+@Table(name="locations")
+public @Data
+class LocationDTO implements Serializable {
     /*
      *
      *  Fields, the attributes of the photos, if you will
