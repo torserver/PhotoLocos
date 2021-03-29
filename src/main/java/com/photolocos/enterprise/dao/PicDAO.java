@@ -2,24 +2,35 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
  * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
  *
- * PhotoDAO class to handle Photo related operations
+ * PicDAO class to handle Photo related operations
  */
-@Component
-public class PhotoDAO implements IPhotoDAO {
+@Repository
+public class PicDAO implements IPhotoDAO {
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();
 
     @Override
-    public boolean createEntry(PhotoDTO photoDTO) throws Exception {
-        photos.put(photoDTO.getPhotoId(), photoDTO);
-//        if (photos.containsKey(photoDTO.getPhotoId())) return true;
-        return false;
+    public Set<PhotoDTO> fetchAll() {
+        return new HashSet<>(photos.values());
+    }
+
+    @Override
+    public void save(PhotoDTO photo) {
+
+    }
+
+    @Override
+    public void saveImage(MultipartFile image) throws IOException {
+
     }
 
     @Override
@@ -69,17 +80,7 @@ public class PhotoDAO implements IPhotoDAO {
     }
 
     @Override
-    public Map<Integer, PhotoDTO> fetchAll() {
-        return photos;
-    }
-
-    @Override
-    public void save(PhotoDTO photo) {
-
-    }
-
-    @Override
-    public Set<PhotoDTO> fetchByLocation(String ohio) {
+    public PhotoDTO fetchByLocation(int locationID) {
         return null;
     }
 }

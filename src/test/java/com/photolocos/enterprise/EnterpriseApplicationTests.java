@@ -2,22 +2,17 @@ package com.photolocos.enterprise;
 
 import com.photolocos.enterprise.dao.ILocationDAO;
 import com.photolocos.enterprise.dao.IPhotoDAO;
-import com.photolocos.enterprise.dao.PhotoDAO;
 import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.util.Assert;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
-
-import static com.photolocos.enterprise.dao.PhotoDAO.*;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
@@ -45,13 +40,16 @@ class EnterpriseApplicationTests {
         PhotoDTO photo = new PhotoDTO();
         LocationDTO location = new LocationDTO();
         location.setState("Ohio");
+        location.setId(1);
 
         photo.setLocation(location);
-        photoDAO.createEntry(photo);
+        photoDAO.save(photo);
     }
 
     private Set<PhotoDTO> userSearchesLocation() {
-        return photoDAO.fetchByLocation("Ohio");
+        Set<PhotoDTO> photoDTOSet = new HashSet<>();
+        photoDTOSet.add(photoDAO.fetchByLocation(1));
+        return photoDTOSet;
     }
 
     private void returnsPhotoResults(Set<PhotoDTO> results) {
@@ -79,8 +77,8 @@ class EnterpriseApplicationTests {
 
     private void whenPhotoAddedWithTagRiver() throws Exception {
         PhotoDTO photo = new PhotoDTO();
-        photo.setTags(new String[]{"river"});
-        photoDAO.createEntry(photo);
+        photo.setTags("river");
+        photoDAO.save(photo);
     }
 
     private Set<PhotoDTO> whenSearchPhotoWithTagRiver() {

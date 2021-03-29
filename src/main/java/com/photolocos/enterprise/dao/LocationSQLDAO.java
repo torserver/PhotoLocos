@@ -2,6 +2,7 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,17 +20,26 @@ public class LocationSQLDAO implements ILocationDAO {
 
     @Override
     public LocationDTO fetchUserLocation() {
-        return null;
+        LocationDTO byStateAndCity = new LocationDTO();
+        byStateAndCity = locationRepository.findByStateAndCity("Ohio", "Cincinnati");
+
+        return byStateAndCity;
     }
 
     @Override
     public LocationDTO fetchByCoordinates(String longitude, String latitude) {
-        return null;
+        LocationDTO byLatitudeAndLongitude = new LocationDTO();
+        byLatitudeAndLongitude = locationRepository.findByLatitudeAndLongitude(latitude, longitude);
+
+        return byLatitudeAndLongitude;
     }
 
     @Override
     public LocationDTO fetchByArea(String state, String city) {
-        return null;
+        LocationDTO byStateAndCity = new LocationDTO();
+        byStateAndCity = locationRepository.findByStateAndCity(state, city);
+
+        return byStateAndCity;
     }
 
     @Override
