@@ -15,8 +15,7 @@ import java.util.Map;
  *
  * LocDAO class to handle Location related operations
  */
-@Repository
-@Profile("test")
+@Repository()
 public class LocDAO implements ILocationDAO {
 
     private Map<Integer, LocationDTO> locations = new HashMap<>();

@@ -14,8 +14,8 @@ import java.util.*;
  *
  * PicDAO class to handle Photo related operations
  */
-@Repository
-@Profile("test")
+
+@Repository()
 public class PicDAO implements IPhotoDAO {
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();

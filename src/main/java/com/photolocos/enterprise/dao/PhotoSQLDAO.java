@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.util.*;
 
 @Repository("photoDAO")
-@Profile("dev")
 public class PhotoSQLDAO implements IPhotoDAO {
 
     @Autowired

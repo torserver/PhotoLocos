@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-@Profile("!test")
+
 public interface LocationRepository extends CrudRepository<LocationDTO, Integer> {
 
     List<LocationDTO> findByCity(String city);

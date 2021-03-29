@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository("locationDAO")
-@Profile("dev")
 public class LocationSQLDAO implements ILocationDAO {
 
     @Autowired
