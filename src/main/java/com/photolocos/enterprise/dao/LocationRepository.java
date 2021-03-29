@@ -1,10 +1,12 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
+import org.springframework.context.annotation.Profile;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+@Profile("!test")
 public interface LocationRepository extends CrudRepository<LocationDTO, Integer> {
 
     List<LocationDTO> findByCity(String city);
