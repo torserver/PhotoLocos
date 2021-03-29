@@ -1,6 +1,7 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,7 @@ import java.util.Map;
  * LocDAO class to handle Location related operations
  */
 @Repository
+@Profile("test")
 public class LocDAO implements ILocationDAO {
 
     private Map<Integer, LocationDTO> locations = new HashMap<>();
