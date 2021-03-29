@@ -7,18 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 @Component
 public class PhotoService implements IPhotoService{
+    private IPhotoDAO photoDAO;
+    PhotoDTO photo = new PhotoDTO();
+    HashSet<PhotoDTO> photos = new HashSet<PhotoDTO>();
 
-    @Autowired
-    IPhotoDAO photoDAO;
-
+    public PhotoService(IPhotoDAO photoDAO) {
+        this.photoDAO = photoDAO;
+    }
 
     @Override
-    public PhotoDTO fetchByLocation(String location) {
-
+    public PhotoDTO fetchByLocation(String locationId) {
         return null;
     }
 
@@ -29,17 +33,16 @@ public class PhotoService implements IPhotoService{
 
     @Override
     public PhotoDTO savePhoto(PhotoDTO photo, MultipartFile image) {
-        PhotoDTO savedPhoto;
         try {
             photoDAO.save(photo);
             photoDAO.saveImage(image);
-            savedPhoto = photo;
+
+            return photo;
         } catch (Exception e) {
             e.printStackTrace();
-            savedPhoto = new PhotoDTO();
         }
 
-        return savedPhoto;
+        return null;
     }
 
     @Override

@@ -1,8 +1,6 @@
 package com.photolocos.enterprise.dto;
 
-
 import lombok.Data;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -15,17 +13,9 @@ import java.util.Date;
 @Table(name="photos")
 public @Data
 class PhotoDTO implements Serializable {
-
-    /*
-     *
-     *  Fields, the attributes of the photos, if you will
-     *
-     */
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-
     private String type;
     private String fileType;
     private String filePath;
@@ -35,117 +25,10 @@ class PhotoDTO implements Serializable {
     private String tags;
     private Date dateTaken;
     private int rating;
-
     @OneToOne
     @JoinColumn(name="id")
     private LocationDTO location;
-
     private int photoId;
-
-    /*
-     *
-     * Getters and Setters
-     *
-     */
-
-    /**
-     * Returns a string, the file type of a photo uploaded to the server.
-     *
-     * @return fileType in String format.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
-     * Sets the file type of a photo object.
-     *
-     * @param fileType, EX: png, jpg...
-     */
-    public void setType(String fileType) {
-        this.type = fileType;
-    }
-
-    /**
-     * Returns a string, the file type of a photo uploaded to the server.
-     *
-     * @return fileType in String format.
-     */
-    public String getFileType() {
-        return fileType;
-    }
-
-    /**
-     * Sets the file type of a photo object.
-     *
-     * @param fileType, EX: png, jpg...
-     */
-    public void setFileType(String fileType) {
-        this.fileType = fileType;
-    }
-
-    /**
-     * Returns an Array[] of tags for a given photo.
-     *
-     * @return tags, EX: { funny, cool, nice, stocks, to, the, moon }
-     */
-    public String getTags() {
-        return tags;
-    }
-
-    /**
-     * Sets an Array[] of tags for a given photo.
-     *
-     * @param tags, EX: { funny, cool, nice, stocks, to, the, moon, poggers }
-     */
-    public void setTags(String tags) {
-        this.tags = tags;
-    }
-
-    /**
-     * Returns a string for a given photo.
-     *
-     * @return location, common name (EX: Cincinnati, OH)
-     */
-    public LocationDTO getLocation() {
-        return location;
-    }
-
-    /**
-     * Sets a location for a given photo.
-     *
-     * @param location is NOT a location Object (EX: Cincinnati, OH).
-     */
-    public void setLocation(LocationDTO location) {
-        this.location = location;
-    }
-
-    /**
-     * Returns the tips for a given photo
-     *
-     * @return tips
-     */
-    public String getTips() {
-        return tips;
-    }
-
-    /**
-     * Sets the tips for a given photo.
-     *
-     * @param tips is NOT an array
-     */
-    public void setTips(String tips) {
-        this.tips = tips;
-    }
-
-    /**
-     * Gets the rating for a given photo.
-     *
-     * @return rating.
-     */
-    public int getRating() {
-        return rating;
-    }
 
     /**
      * Sets the rating for a given photo.
@@ -165,81 +48,9 @@ class PhotoDTO implements Serializable {
         }
     }
 
-    /**
-     * @return id, ID of the photo, linked to a location.
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id, ID of the photo, linked to a location.
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * @return dateTaken, the date the photo was taken.
-     */
-    public Date getDateTaken() {
-        return dateTaken;
-    }
-
-    /**
-     * @param dateTaken, the date the photo was taken.
-     */
-    public void setDateTaken(Date dateTaken) {
-        this.dateTaken = dateTaken;
-    }
-
-    /**
-     * @return contributor, the user who took the photo.
-     */
-    public String getContributor() {
-        return contributor;
-    }
-
-    /**
-     * @param contributor, the user who took the photo.
-     */
-    public void setContributor(String contributor) {
-        this.contributor = contributor;
-    }
-
-    /**
-     * @return uri, the URI of the photo on the server.
-     */
-    public String getUri() {
-        return uri;
-    }
-
-    /**
-     * @param uri, the URI of the photo on the server.
-     */
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
     @Override
     public String toString() {
         // TODO Auto-generated method stub
         return uri;
     }
-
-    /**
-     * @return, returns the Unique ID of the photo
-     */
-    public int getPhotoId() {
-        return photoId;
-    }
-
-    /**
-     * @param photoId, the Unique ID of the photo
-     */
-    public void setPhotoId(int photoId) {
-        this.photoId = photoId;
-    }
-
-
 }
