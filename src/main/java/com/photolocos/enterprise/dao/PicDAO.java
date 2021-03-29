@@ -1,6 +1,7 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.PhotoDTO;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
@@ -14,6 +15,7 @@ import java.util.*;
  * PicDAO class to handle Photo related operations
  */
 @Repository
+@Profile("test")
 public class PicDAO implements IPhotoDAO {
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();
