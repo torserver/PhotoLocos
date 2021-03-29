@@ -12,7 +12,7 @@ import java.util.Date;
  * TODO: JavaDoc.
  */
 @Entity
-@Table(name="photos")
+//@Table(name="photos")
 public @Data
 class PhotoDTO implements Serializable {
 
