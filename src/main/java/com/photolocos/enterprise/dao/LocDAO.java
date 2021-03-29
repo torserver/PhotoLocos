@@ -2,6 +2,7 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,10 +12,10 @@ import java.util.Map;
 /**
  * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
  *
- * LocationDAO class to handle Location related operations
+ * LocDAO class to handle Location related operations
  */
-@Component
-public class LocationDAO implements ILocationDAO {
+@Repository
+public class LocDAO implements ILocationDAO {
 
     private Map<Integer, LocationDTO> locations = new HashMap<>();
 
