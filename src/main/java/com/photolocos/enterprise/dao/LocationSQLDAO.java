@@ -42,6 +42,11 @@ public class LocationSQLDAO implements ILocationDAO {
 
         return byStateAndCity;
     }
+    
+    @Override
+    public void delete(int id) {
+        locationRepository.deleteByID(id);
+    }
 
     @Override
     public List<LocationDTO> fetchByDescription(String description) {

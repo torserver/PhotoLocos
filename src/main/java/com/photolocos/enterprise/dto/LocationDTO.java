@@ -32,6 +32,9 @@ class LocationDTO implements Serializable {
     private String city;
     private String area;
     private String description;
+    
+    @OneToMany(mappedBy = "location")
+    private List<Location> locations;
 
 
     private int locationId;
