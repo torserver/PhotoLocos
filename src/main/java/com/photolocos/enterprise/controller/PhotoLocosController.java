@@ -15,6 +15,7 @@ public class PhotoLocosController {
 
     @Autowired
     private IPhotoService photoService;
+    private ModelAndView modelAndView = new ModelAndView();
 
     /**
      * Handle the "/" endpoint
@@ -27,8 +28,6 @@ public class PhotoLocosController {
 
     @PostMapping(value="/upload")
     public ModelAndView savePhoto(@RequestParam("image") MultipartFile image, PhotoDTO photo) {
-        ModelAndView modelAndView = new ModelAndView();
-
         try {
             photoService.savePhoto(photo, image);
             modelAndView.setViewName("success");
@@ -40,7 +39,6 @@ public class PhotoLocosController {
 
         modelAndView.addObject("photoDTO", photo);
         return modelAndView;
-
     }
 
     @GetMapping("/photos")
@@ -51,7 +49,6 @@ public class PhotoLocosController {
 
     @GetMapping("/photosByTag/{tag}/")
     public ModelAndView photosByTag(@PathVariable("tag") String tag) {
-        ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         Set<PhotoDTO> photos = photoService.fetchByTag(tag);
         modelAndView.addObject("photos", photos);
@@ -60,7 +57,6 @@ public class PhotoLocosController {
 
     @GetMapping("/photosByCity/{city}/")
     public ModelAndView photosByCity(@PathVariable("city") String city) {
-        ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         Set<PhotoDTO> photos = photoService.fetchPhotoByCity(city);
         modelAndView.addObject("photos", photos);
@@ -69,12 +65,9 @@ public class PhotoLocosController {
 
     @GetMapping("/photoByCity/{area}/")
     public ModelAndView photoByArea(@PathVariable("area") String area) {
-        ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         PhotoDTO photo = photoService.fetchByLocation(area);
         modelAndView.addObject("photo", photo);
         return  modelAndView;
     }
-
-
 }

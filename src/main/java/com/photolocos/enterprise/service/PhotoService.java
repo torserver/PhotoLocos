@@ -7,53 +7,59 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Set;
 
 @Component
 public class PhotoService implements IPhotoService{
+    private IPhotoDAO photoDAO;
+    PhotoDTO photo = new PhotoDTO();
+    Set<PhotoDTO> photos = new HashSet<PhotoDTO>();
 
-    @Autowired
-    IPhotoDAO photoDAO;
-
-
-    @Override
-    public PhotoDTO fetchByLocation(String location) {
-
-        return null;
-    }
-
-    @Override
-    public Set<PhotoDTO> fetchByTag(String tag) {
-        return null;
+    public PhotoService(IPhotoDAO photoDAO) {
+        this.photoDAO = photoDAO;
     }
 
     @Override
     public PhotoDTO savePhoto(PhotoDTO photo, MultipartFile image) {
-        PhotoDTO savedPhoto;
         try {
             photoDAO.save(photo);
             photoDAO.saveImage(image);
-            savedPhoto = photo;
+
+            return photo;
         } catch (Exception e) {
             e.printStackTrace();
-            savedPhoto = new PhotoDTO();
         }
 
-        return savedPhoto;
+        return null;
+    }
+
+    @Override
+    public PhotoDTO fetchByLocation(String locationId) {
+        photo = photoDAO.fetchByLocation(Integer.parseInt(locationId));
+        return photo;
+    }
+
+    @Override
+    public Set<PhotoDTO> fetchByTag(String tag) {
+        photos = photoDAO.fetchByTag(new String[]{tag});
+        return photos;
     }
 
     @Override
     public Set<PhotoDTO> fetchAll() {
-        return null;
+        return photoDAO.fetchAll();
     }
 
     @Override
     public Set<PhotoDTO> fetchPhotoByCity(String city) {
-        return null;
+        return photos;
     }
 
     @Override
     public Set<LocationDTO> fetchLocationByCity(String city) {
-        return null;
+        HashSet<LocationDTO> locations = new HashSet<LocationDTO>();
+        return locations;
     }
 }

@@ -16,7 +16,6 @@ import java.util.Set;
 
 @SpringBootTest
 class EnterpriseApplicationTests {
-
     private PhotoDTO photo = new PhotoDTO();
 
     @MockBean
