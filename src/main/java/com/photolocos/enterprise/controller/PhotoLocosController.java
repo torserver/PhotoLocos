@@ -51,30 +51,47 @@ public class PhotoLocosController {
 
     @GetMapping("/photosByTag/{tag}/")
     public ModelAndView photosByTag(@PathVariable("tag") String tag) {
+        try {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         Set<PhotoDTO> photos = photoService.fetchByTag(tag);
         modelAndView.addObject("photos", photos);
         return  modelAndView;
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+            return "error";
+        }
     }
 
     @GetMapping("/photosByCity/{city}/")
     public ModelAndView photosByCity(@PathVariable("city") String city) {
+        try {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         Set<PhotoDTO> photos = photoService.fetchPhotoByCity(city);
         modelAndView.addObject("photos", photos);
         return  modelAndView;
+        }
+        catch (IOException e) {
+                    e.printStackTrace();
+                    return "error";
+        }
+           
     }
 
     @GetMapping("/photoByCity/{area}/")
     public ModelAndView photoByArea(@PathVariable("area") String area) {
+        try{
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         PhotoDTO photo = photoService.fetchByLocation(area);
         modelAndView.addObject("photo", photo);
         return  modelAndView;
-    }
-
-
+        }
+        catch (IOException e) {
+                    e.printStackTrace();
+                    return "error";
+        }
+        
 }
