@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dao;
 
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,8 @@ import java.util.*;
  */
 
 @Repository()
-public class PicDAO implements IPhotoDAO {
+@Profile("test")
+public class PictureDAOStub implements IPhotoDAO {
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();
 
@@ -27,7 +29,8 @@ public class PicDAO implements IPhotoDAO {
 
     @Override
     public void save(PhotoDTO photo) {
-
+        photo.setId(photos.size());
+        photos.put(photo.getId(), photo);
     }
 
     @Override
@@ -82,7 +85,16 @@ public class PicDAO implements IPhotoDAO {
     }
 
     @Override
-    public PhotoDTO fetchByLocation(int locationID) {
-        return null;
+    public Set<PhotoDTO> fetchByLocation(LocationDTO location) {
+        List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
+        Set<PhotoDTO> matchedPhotos = new HashSet<>();
+
+        for (PhotoDTO photo : photosCollection) {
+            LocationDTO photoLocation = photo.getLocation();
+            if (photoLocation != null && photoLocation.equals(location)) {
+                matchedPhotos.add(photo);
+            }
+        }
+        return matchedPhotos;
     }
 }

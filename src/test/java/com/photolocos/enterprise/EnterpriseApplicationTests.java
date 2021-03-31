@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.util.Assert;
 
 import java.util.Arrays;
@@ -15,6 +16,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootTest
+@ActiveProfiles("test")
 class EnterpriseApplicationTests {
 
     private PhotoDTO photo = new PhotoDTO();
@@ -40,15 +42,17 @@ class EnterpriseApplicationTests {
         PhotoDTO photo = new PhotoDTO();
         LocationDTO location = new LocationDTO();
         location.setState("Ohio");
-        location.setId(1);
+        location.setCity("Cincinnati");
 
         photo.setLocation(location);
         photoDAO.save(photo);
     }
 
     private Set<PhotoDTO> userSearchesLocation() {
-        Set<PhotoDTO> photoDTOSet = new HashSet<>();
-        photoDTOSet.add(photoDAO.fetchByLocation(1));
+        LocationDTO location = new LocationDTO();
+        location.setState("Ohio");
+        location.setCity("Cincinnati");
+        Set<PhotoDTO> photoDTOSet = photoDAO.fetchByLocation(location);
         return photoDTOSet;
     }
 
@@ -93,6 +97,7 @@ class EnterpriseApplicationTests {
         for (PhotoDTO photo : results) {
             if (!Arrays.asList(photo.getTags()).contains("river")) {
                 photosMatch = false;
+                break;
             }
         }
 

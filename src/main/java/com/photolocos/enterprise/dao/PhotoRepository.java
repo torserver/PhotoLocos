@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-
+@Profile("!test")
 public interface PhotoRepository extends CrudRepository<PhotoDTO, Integer> {
 
     List<PhotoDTO> findByTagsContaining(String tags);
@@ -15,6 +15,6 @@ public interface PhotoRepository extends CrudRepository<PhotoDTO, Integer> {
 
     List<PhotoDTO> findByType(String type);
 
-    PhotoDTO findByLocation(int location);
+    List<PhotoDTO> findByLocation(int location);
 
 }

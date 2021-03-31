@@ -132,4 +132,13 @@ class LocationDTO implements Serializable {
         this.locationId = locationId;
     }
 
+    public boolean equals(LocationDTO location) {
+        if (this.getState().equals(location.getState()) && this.getCity().equals(location.getCity())) {
+            return true;
+        } else if (this.getLatitude().equals(location.getLatitude()) && this.getLongitude().equals(location.getLongitude())) {
+            return true;
+        }
+        return false;
+    }
+
 }

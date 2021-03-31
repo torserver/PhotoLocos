@@ -3,12 +3,12 @@ package com.photolocos.enterprise.dao;
 import com.photolocos.enterprise.dto.LocationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository("locationDAO")
+@Repository
+@Profile("dev")
 public class LocationSQLDAO implements ILocationDAO {
 
     @Autowired

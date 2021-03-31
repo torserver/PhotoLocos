@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dao;
 
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -55,8 +56,8 @@ public interface IPhotoDAO {
     /**
      * This method returns all photos whose location matches the given location String
      *
-     * @param locationID String to query all photo locations against
-     * @return A set of photo object with location matching the given location String
+     * @param location LocationDTO object representing a given location
+     * @return A set of photo objects with location matching the given location String
      */
-    PhotoDTO fetchByLocation(int locationID);
+    Set<PhotoDTO> fetchByLocation(LocationDTO location);
 }
