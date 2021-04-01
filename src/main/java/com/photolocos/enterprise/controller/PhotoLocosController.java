@@ -71,8 +71,8 @@ public class PhotoLocosController {
     public ModelAndView photoByArea(@PathVariable("area") String area) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
-        PhotoDTO photo = photoService.fetchByLocation(area);
-        modelAndView.addObject("photo", photo);
+        Set<PhotoDTO> photos = photoService.fetchByArea(area);
+        modelAndView.addObject("photos", photos);
         return  modelAndView;
     }
 

@@ -8,7 +8,7 @@ import java.util.Set;
 
 public interface IPhotoService {
 
-    PhotoDTO fetchByLocation(String location);
+    Set<PhotoDTO> fetchByArea(String area);
 
     Set<PhotoDTO> fetchByTag(String tag);
 
