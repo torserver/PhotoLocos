@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 /**
@@ -16,7 +19,7 @@ import java.util.*;
  */
 
 @Repository()
-public class PicDAO implements IPhotoDAO {
+public class PhotoDAO implements IPhotoDAO {
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();
 
@@ -31,9 +34,12 @@ public class PicDAO implements IPhotoDAO {
     }
 
     @Override
-    public void saveImage(MultipartFile image) throws IOException {
-
+    public void saveImage(MultipartFile file) throws IOException {
+        String folder = "/uploadedPhotos/";
+        byte[] bytes = file.getBytes();
+        Files.write(Paths.get(folder + file.getOriginalFilename()), bytes);
     }
+
 
     @Override
     public Set<PhotoDTO> fetchByTag(String[] tags) {

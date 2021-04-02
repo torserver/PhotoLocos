@@ -25,24 +25,6 @@ public class PhotoLocosController {
         return "index";
     }
 
-    @PostMapping(value="/upload")
-    public ModelAndView savePhoto(@RequestParam("image") MultipartFile image, PhotoDTO photo) {
-        ModelAndView modelAndView = new ModelAndView();
-
-        try {
-            photoService.savePhoto(photo, image);
-            modelAndView.setViewName("success");
-        } catch (Exception e) {
-            e.printStackTrace();
-            modelAndView.setViewName("error");
-            return modelAndView;
-        }
-
-        modelAndView.addObject("photoDTO", photo);
-        return modelAndView;
-
-    }
-
     @GetMapping("/photos")
     @ResponseBody
     public Set<PhotoDTO> fetchAllSpecimens() {

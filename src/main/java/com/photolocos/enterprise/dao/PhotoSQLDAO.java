@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.*;
 
-@Repository("photoDAO")
+@Repository("PhotoDAO")
 public class PhotoSQLDAO implements IPhotoDAO {
 
     @Autowired

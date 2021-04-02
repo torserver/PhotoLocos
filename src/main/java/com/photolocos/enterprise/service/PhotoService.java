@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Set;
 
 @Component
@@ -56,4 +59,10 @@ public class PhotoService implements IPhotoService{
     public Set<LocationDTO> fetchLocationByCity(String city) {
         return null;
     }
+
+    @Override
+    public void saveImage(MultipartFile file) throws IOException {
+
+    }
+
 }
