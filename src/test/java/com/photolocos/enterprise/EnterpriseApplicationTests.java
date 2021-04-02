@@ -48,7 +48,7 @@ class EnterpriseApplicationTests {
         photoDAO.save(photo);
     }
 
-    private Set<PhotoDTO> userSearchesLocation() {
+    private Set<PhotoDTO> userSearchesLocation() throws Exception {
         LocationDTO location = new LocationDTO();
         location.setState("Ohio");
         location.setCity("Cincinnati");
@@ -85,7 +85,7 @@ class EnterpriseApplicationTests {
         photoDAO.save(photo);
     }
 
-    private Set<PhotoDTO> whenSearchPhotoWithTagRiver() {
+    private Set<PhotoDTO> whenSearchPhotoWithTagRiver() throws Exception {
         return photoDAO.fetchByTag(new String[]{"river"});
     }
 
