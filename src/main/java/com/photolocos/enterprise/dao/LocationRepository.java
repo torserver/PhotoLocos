@@ -6,19 +6,19 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-
+@Profile("!test")
 public interface LocationRepository extends CrudRepository<LocationDTO, Integer> {
 
-    List<LocationDTO> findByCity(String city);
+    List<LocationDTO> findByCity(String city) throws Exception;
 
-    List<LocationDTO> findByLongitude(String longitude);
+    List<LocationDTO> findByLongitude(double longitude) throws Exception;
 
-    List<LocationDTO> findByLatitude(String latitude);
+    List<LocationDTO> findByLatitude(double latitude) throws Exception;
 
-    LocationDTO findByLatitudeAndLongitude(String latitude, String longitude);
+    LocationDTO findByLatitudeAndLongitude(double latitude, double longitude) throws Exception;
 
-    LocationDTO findByid(int id);
+    LocationDTO findByid(int id) throws Exception;
 
-    LocationDTO findByStateAndCity(String state, String city);
+    LocationDTO findByStateAndCity(String state, String city) throws Exception;
 
 }

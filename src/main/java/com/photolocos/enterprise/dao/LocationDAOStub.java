@@ -15,8 +15,9 @@ import java.util.Map;
  *
  * LocDAO class to handle Location related operations
  */
-@Repository()
-public class LocDAO implements ILocationDAO {
+@Repository
+@Profile("test")
+public class LocationDAOStub implements ILocationDAO {
 
     private Map<Integer, LocationDTO> locations = new HashMap<>();
 
@@ -28,8 +29,8 @@ public class LocDAO implements ILocationDAO {
     @Override
     public LocationDTO fetchUserLocation() {
         LocationDTO userLocation = new LocationDTO();
-        userLocation.setLongitude("84.51");
-        userLocation.setLatitude("39.10");
+        userLocation.setLongitude(84.51);
+        userLocation.setLatitude(39.10);
         userLocation.setCountry("USA");
         userLocation.setState("OH");
         userLocation.setCity("Cincinnati");
@@ -42,12 +43,12 @@ public class LocDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByCoordinates(String longitude, String latitude) {
+    public LocationDTO fetchByCoordinates(double longitude, double latitude) {
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 
         for (LocationDTO loc : locationsCollection) {
-            if (loc.getLatitude().equals(latitude) && loc.getLongitude().equals(longitude)) {
+            if (loc.getLatitude() == latitude && loc.getLongitude() == longitude) {
                 neededLocation = loc;
             }
         }
@@ -55,7 +56,7 @@ public class LocDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByArea(String state, String city) {
+    public LocationDTO fetchByStateAndCity(String state, String city) {
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 

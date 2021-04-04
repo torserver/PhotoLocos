@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dao;
 
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,7 +22,7 @@ public interface IPhotoDAO {
      *
      * TODO: Discuss with team, whether to change this to fetch all by Specific User/Contributor (if accounts are integrated in future)
      */
-    Set<PhotoDTO> fetchAll();
+    Set<PhotoDTO> fetchAll() throws Exception;
 
     void save(PhotoDTO photo);
 
@@ -33,7 +34,7 @@ public interface IPhotoDAO {
      * @param tags A array of list of keywords, used to return specific photos
      * @return A Set of photo objects if photos with similar tags are found, otherwise null
      */
-    Set<PhotoDTO> fetchByTag(String[] tags);
+    Set<PhotoDTO> fetchByTag(String[] tags) throws Exception;
 
     /**
      * This method will return a Set of photo objects {@link PhotoDTO}, that have particular ratings
@@ -41,7 +42,7 @@ public interface IPhotoDAO {
      * @param rating The rating to match while returning specific photos
      * @return A Set of photo objects if photos with similar rating are found, otherwise null
      */
-    Set<PhotoDTO> fetchByRating(int rating);
+    Set<PhotoDTO> fetchByRating(int rating) throws Exception;
 
     /**
      * This method will return a Set of photo objects {@link PhotoDTO}, that have particular Photography Type.
@@ -50,13 +51,13 @@ public interface IPhotoDAO {
      * @param type The photography type to match while returning specific photos
      * @return A Set of photo objects if photos with specified type are found, otherwise null
      */
-    Set<PhotoDTO> fetchByType(String type);
+    Set<PhotoDTO> fetchByType(String type) throws Exception;
 
     /**
      * This method returns all photos whose location matches the given location String
      *
-     * @param locationID String to query all photo locations against
-     * @return A set of photo object with location matching the given location String
+     * @param location LocationDTO object representing a given location
+     * @return A set of photo objects with location matching the given location String
      */
-    PhotoDTO fetchByLocation(int locationID);
+    Set<PhotoDTO> fetchByLocation(LocationDTO location) throws Exception;
 }
