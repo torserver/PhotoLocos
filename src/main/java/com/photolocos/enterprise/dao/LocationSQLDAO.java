@@ -25,7 +25,7 @@ public class LocationSQLDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByCoordinates(double longitude, double latitude) throws Exception {
+    public LocationDTO fetchByCoordinates(String longitude, String latitude) throws Exception {
         return locationRepository.findByLatitudeAndLongitude(latitude, longitude);
     }
 

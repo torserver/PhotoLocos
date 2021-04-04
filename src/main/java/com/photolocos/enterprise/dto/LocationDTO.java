@@ -3,7 +3,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+
 
 
 
@@ -25,8 +25,8 @@ class LocationDTO implements Serializable {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
-    private double longitude;
-    private double latitude;
+    private String longitude;
+    private String latitude;
     private String country;
     private String state;
     private String city;
@@ -36,7 +36,7 @@ class LocationDTO implements Serializable {
 
     public boolean equals(LocationDTO location) {
         return (this.getState().equals(location.getState()) && this.getCity().equals(location.getCity()))
-                || (this.getLatitude() == location.getLatitude() && this.getLongitude() == location.getLongitude())
+                || (this.getLatitude().equals(location.getLatitude()) && this.getLongitude().equals(location.getLongitude()))
                 || (this.getArea().equals(location.getArea()));
     }
 }

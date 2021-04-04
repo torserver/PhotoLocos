@@ -35,7 +35,7 @@ public interface ILocationDAO {
      * @param latitude  the latitude of the location that the user wants to get more info about photography locations
      * @return the location object matching the co-ordinates, if not found return null
      */
-    LocationDTO fetchByCoordinates(double longitude, double latitude) throws Exception;
+    LocationDTO fetchByCoordinates(String longitude, String latitude) throws Exception;
 
     /**
      * This method will return Location Object {@link LocationDTO} based on a State and a City

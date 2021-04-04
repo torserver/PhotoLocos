@@ -29,8 +29,8 @@ public class LocationDAOStub implements ILocationDAO {
     @Override
     public LocationDTO fetchUserLocation() {
         LocationDTO userLocation = new LocationDTO();
-        userLocation.setLongitude(84.51);
-        userLocation.setLatitude(39.10);
+        userLocation.setLongitude("84.51");
+        userLocation.setLatitude("39.10");
         userLocation.setCountry("USA");
         userLocation.setState("OH");
         userLocation.setCity("Cincinnati");
@@ -43,12 +43,12 @@ public class LocationDAOStub implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByCoordinates(double longitude, double latitude) {
+    public LocationDTO fetchByCoordinates(String longitude, String latitude) {
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 
         for (LocationDTO loc : locationsCollection) {
-            if (loc.getLatitude() == latitude && loc.getLongitude() == longitude) {
+            if (loc.getLatitude().equals(latitude)  && loc.getLongitude().equals(longitude)) {
                 neededLocation = loc;
             }
         }
