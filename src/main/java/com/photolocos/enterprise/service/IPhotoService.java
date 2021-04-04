@@ -9,17 +9,20 @@ import java.util.Set;
 
 public interface IPhotoService {
 
-    PhotoDTO fetchByLocation(String location);
+    Set<PhotoDTO> fetchByArea(String area) throws Exception;
 
-    Set<PhotoDTO> fetchByTag(String tag);
+    Set<PhotoDTO> fetchByTag(String tag) throws Exception;
 
     PhotoDTO savePhoto(PhotoDTO photo, MultipartFile image);
 
-    Set<PhotoDTO> fetchAll();
+    Set<PhotoDTO> fetchAll() throws Exception;
 
-    Set<PhotoDTO> fetchPhotoByCity(String city);
+    Set<PhotoDTO> fetchPhotoByStateAndCity(String state, String city) throws Exception;
 
     Set<LocationDTO> fetchLocationByCity(String city);
 
     void saveImage(MultipartFile file) throws IOException;
+
+    LocationDTO fetchLocationByStateAndCity(String state, String city) throws Exception;
+
 }

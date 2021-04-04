@@ -18,7 +18,7 @@ public interface ILocationDAO {
      * @throws Exception Any exception that could occur as a result of failure to create a entry
      * in database or other preferred storage
      */
-    void createEntry(LocationDTO locationDTO);
+    void createEntry(LocationDTO locationDTO) throws Exception;
 
     /**
      * This method tries to get user's current approximate geographical location
@@ -26,7 +26,7 @@ public interface ILocationDAO {
      *
      * @return Location object for the current user location
      */
-    LocationDTO fetchUserLocation();
+    LocationDTO fetchUserLocation() throws Exception;
 
     /**
      * This method will return Location Object {@link LocationDTO} based on Co-ordinates
@@ -35,7 +35,7 @@ public interface ILocationDAO {
      * @param latitude  the latitude of the location that the user wants to get more info about photography locations
      * @return the location object matching the co-ordinates, if not found return null
      */
-    LocationDTO fetchByCoordinates(String longitude, String latitude);
+    LocationDTO fetchByCoordinates(String longitude, String latitude) throws Exception;
 
     /**
      * This method will return Location Object {@link LocationDTO} based on a State and a City
@@ -44,7 +44,7 @@ public interface ILocationDAO {
      * @param city  the City that the user wants to get more info about photography locations
      * @return the location object found in specific state and city
      */
-    LocationDTO fetchByArea(String state, String city);
+    LocationDTO fetchByStateAndCity(String state, String city) throws Exception;
 
     /**
      * This method will return Location Objects {@link LocationDTO} based on a description

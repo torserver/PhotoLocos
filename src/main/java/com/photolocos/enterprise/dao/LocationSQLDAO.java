@@ -3,12 +3,13 @@ package com.photolocos.enterprise.dao;
 import com.photolocos.enterprise.dto.LocationDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository("LocationDAO")
+@Profile("dev")
 public class LocationSQLDAO implements ILocationDAO {
 
     @Autowired
@@ -20,27 +21,18 @@ public class LocationSQLDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchUserLocation() {
-        LocationDTO byStateAndCity = new LocationDTO();
-        byStateAndCity = locationRepository.findByStateAndCity("Ohio", "Cincinnati");
-
-        return byStateAndCity;
+    public LocationDTO fetchUserLocation() throws Exception {
+        return locationRepository.findByStateAndCity("Ohio", "Cincinnati");
     }
 
     @Override
-    public LocationDTO fetchByCoordinates(String longitude, String latitude) {
-        LocationDTO byLatitudeAndLongitude = new LocationDTO();
-        byLatitudeAndLongitude = locationRepository.findByLatitudeAndLongitude(latitude, longitude);
-
-        return byLatitudeAndLongitude;
+    public LocationDTO fetchByCoordinates(String longitude, String latitude) throws Exception {
+        return locationRepository.findByLatitudeAndLongitude(latitude, longitude);
     }
 
     @Override
-    public LocationDTO fetchByArea(String state, String city) {
-        LocationDTO byStateAndCity = new LocationDTO();
-        byStateAndCity = locationRepository.findByStateAndCity(state, city);
-
-        return byStateAndCity;
+    public LocationDTO fetchByStateAndCity(String state, String city) throws Exception {
+        return locationRepository.findByStateAndCity(state, city);
     }
 
     @Override

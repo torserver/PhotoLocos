@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dao;
 
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
@@ -10,14 +11,17 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.*;
 
+
 @Repository("PhotoDAO")
+@Profile("dev")
+
 public class PhotoSQLDAO implements IPhotoDAO {
 
     @Autowired
     PhotoRepository photoRepository;
 
     @Override
-    public Set<PhotoDTO> fetchAll() {
+    public Set<PhotoDTO> fetchAll() throws Exception {
         Iterable<PhotoDTO> allPhotos = photoRepository.findAll();
         Set<PhotoDTO> photos = new HashSet<>();
         for (PhotoDTO photo: allPhotos) {
@@ -37,7 +41,7 @@ public class PhotoSQLDAO implements IPhotoDAO {
     }
 
     @Override
-    public Set<PhotoDTO> fetchByTag(String[] tags) {
+    public Set<PhotoDTO> fetchByTag(String[] tags) throws Exception {
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
         for (String tag: tags) {
             List<PhotoDTO> containsTag = photoRepository.findByTagsContaining(tag);
@@ -48,21 +52,23 @@ public class PhotoSQLDAO implements IPhotoDAO {
     }
 
     @Override
-    public Set<PhotoDTO> fetchByRating(int rating) {
+    public Set<PhotoDTO> fetchByRating(int rating) throws Exception {
         List<PhotoDTO> byRating = photoRepository.findByRating(rating);
 
         return new HashSet<>(byRating);
     }
 
     @Override
-    public Set<PhotoDTO> fetchByType(String type) {
+    public Set<PhotoDTO> fetchByType(String type) throws Exception {
         List<PhotoDTO> byType = photoRepository.findByType(type);
 
         return new HashSet<>(byType);
     }
 
     @Override
-    public PhotoDTO fetchByLocation(int locationID) {
-        return photoRepository.findByLocation(locationID);
+    public Set<PhotoDTO> fetchByLocation(LocationDTO location) throws Exception {
+        List<PhotoDTO> byLocation = photoRepository.findByLocation(location);
+
+        return new HashSet<>(byLocation);
     }
 }
