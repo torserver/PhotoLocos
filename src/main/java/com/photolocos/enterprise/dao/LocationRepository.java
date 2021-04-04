@@ -11,11 +11,11 @@ public interface LocationRepository extends CrudRepository<LocationDTO, Integer>
 
     List<LocationDTO> findByCity(String city) throws Exception;
 
-    List<LocationDTO> findByLongitude(double longitude) throws Exception;
+    List<LocationDTO> findByLongitude(String longitude) throws Exception;
 
-    List<LocationDTO> findByLatitude(double latitude) throws Exception;
+    List<LocationDTO> findByLatitude(String latitude) throws Exception;
 
-    LocationDTO findByLatitudeAndLongitude(double latitude, double longitude) throws Exception;
+    LocationDTO findByLatitudeAndLongitude(String latitude, String longitude) throws Exception;
 
     LocationDTO findByid(int id) throws Exception;
 

@@ -1,0 +1,24 @@
+2021-04-04 19:25:20,616 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 15.0.2 on LAPTOP-GKC7R00I with PID 21580 (C:\Users\commu\IdeaProjects\PhotoLocos\target\classes started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
+2021-04-04 19:25:20,617 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-04 19:25:20,618 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-04 19:25:22,648 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.382 seconds (JVM running for 2.93)
+2021-04-04 19:25:34,350 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 15.0.2 on LAPTOP-GKC7R00I with PID 12604 (started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
+2021-04-04 19:25:34,352 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-04 19:25:34,352 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2021-04-04 19:25:36,428 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 2.387 seconds (JVM running for 3.452)
+2021-04-04 19:30:01,470 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 15.0.2 on LAPTOP-GKC7R00I with PID 20364 (started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
+2021-04-04 19:30:01,472 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-04 19:30:01,473 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2021-04-04 19:30:03,538 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 2.388 seconds (JVM running for 3.468)
+2021-04-04 19:30:09,970 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 15.0.2 on LAPTOP-GKC7R00I with PID 5480 (C:\Users\commu\IdeaProjects\PhotoLocos\target\classes started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
+2021-04-04 19:30:09,973 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-04 19:30:09,974 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-04 19:30:12,080 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.427 seconds (JVM running for 2.908)
+2021-04-04 19:35:09,832 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 15.0.2 on LAPTOP-GKC7R00I with PID 8588 (C:\Users\commu\IdeaProjects\PhotoLocos\target\classes started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
+2021-04-04 19:35:09,834 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-04 19:35:09,834 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-04 19:35:11,871 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.364 seconds (JVM running for 2.912)
+2021-04-04 19:35:21,575 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplicationTests using Java 15.0.2 on LAPTOP-GKC7R00I with PID 11636 (started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
+2021-04-04 19:35:21,576 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-04 19:35:21,577 INFO org.springframework.boot.SpringApplication [main] The following profiles are active: test
+2021-04-04 19:35:23,627 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplicationTests in 2.377 seconds (JVM running for 3.44)
