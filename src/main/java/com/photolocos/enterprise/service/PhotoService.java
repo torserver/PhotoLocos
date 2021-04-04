@@ -74,9 +74,4 @@ public class PhotoService implements IPhotoService{
         return locationDAO.fetchByStateAndCity(state, city);
     }
 
-    @Override
-    public void saveImage(MultipartFile file) throws IOException {
-
-    }
-
 }
