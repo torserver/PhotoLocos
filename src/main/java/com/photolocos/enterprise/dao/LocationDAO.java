@@ -15,9 +15,8 @@ import java.util.Map;
  *
  * LocDAO class to handle Location related operations
  */
-@Repository
-@Profile("test")
-public class LocationDAOStub implements ILocationDAO {
+@Repository()
+public class LocationDAO implements ILocationDAO {
 
     private Map<Integer, LocationDTO> locations = new HashMap<>();
 
@@ -44,12 +43,11 @@ public class LocationDAOStub implements ILocationDAO {
 
     @Override
     public LocationDTO fetchByCoordinates(String longitude, String latitude) {
-
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 
         for (LocationDTO loc : locationsCollection) {
-            if (loc.getLatitude().equals(latitude)  && loc.getLongitude().equals(longitude)) {
+            if (loc.getLatitude().equals(latitude) && loc.getLongitude().equals(longitude)) {
                 neededLocation = loc;
             }
         }
@@ -57,7 +55,7 @@ public class LocationDAOStub implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByStateAndCity(String state, String city) {
+    public LocationDTO fetchByArea(String state, String city) {
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 

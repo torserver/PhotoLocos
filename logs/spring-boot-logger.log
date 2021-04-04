@@ -1,3 +1,4 @@
+
 2021-04-04 19:25:20,616 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 15.0.2 on LAPTOP-GKC7R00I with PID 21580 (C:\Users\commu\IdeaProjects\PhotoLocos\target\classes started by commu in C:\Users\commu\IdeaProjects\PhotoLocos)
 2021-04-04 19:25:20,617 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
 2021-04-04 19:25:20,618 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev

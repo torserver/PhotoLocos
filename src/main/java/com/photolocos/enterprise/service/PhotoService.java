@@ -74,5 +74,4 @@ public class PhotoService implements IPhotoService{
         return locationDAO.fetchByStateAndCity(state, city);
     }
 
-
 }
