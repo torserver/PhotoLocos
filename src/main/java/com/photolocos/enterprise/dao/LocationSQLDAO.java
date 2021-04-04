@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
-@Repository("LocationDAO")
+@Repository
 @Profile("dev")
 public class LocationSQLDAO implements ILocationDAO {
 

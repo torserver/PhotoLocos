@@ -1,10 +1,5 @@
 package com.photolocos.enterprise.controller;
 
-import com.photolocos.enterprise.dao.PhotoDAO;
-import com.photolocos.enterprise.dto.PhotoDTO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,11 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/upload")
 public class FileUploadController {
-
-    @Autowired
-    private PhotoDAO photoDAO;
 
     /**
      * What do we want to do when the file is uploaded?
@@ -32,18 +23,7 @@ public class FileUploadController {
      * @param file
      */
     @PostMapping
-    public String upload(@RequestParam("file") MultipartFile file, Model model) {
-        log.info("tried to uploaded file " + file.getOriginalFilename());
-        String returnValue = "start";
-
-        try {
-            photoDAO.saveImage(file);
-            PhotoDTO photo = new PhotoDTO();
-            model.addAttribute("photo", photo);
-            returnValue = "start";
-        } catch (Exception e) {
-            returnValue = "error";
-        }
-        return returnValue;
+    public void upload(@RequestParam("file") MultipartFile file) {
+        log.info("uploaded file " + file.getOriginalFilename());
     }
 }
