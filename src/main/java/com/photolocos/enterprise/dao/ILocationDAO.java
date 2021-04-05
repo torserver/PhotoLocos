@@ -53,4 +53,12 @@ public interface ILocationDAO {
      * @return a list of location objects matching the description of a location
      */
     List<LocationDTO> fetchByDescription(String description);
+
+    /**
+     * This method will return Location Objects {@link LocationDTO} based on a city
+     *
+     * @param city A string or array of string that explains most components of location e.g. Snow Mountains, Salt Lakes, etc.
+     * @return a list of location objects matching the description of a location
+     */
+    LocationDTO fetchByCity(String city) throws Exception;
 }

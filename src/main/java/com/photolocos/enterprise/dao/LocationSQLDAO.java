@@ -39,4 +39,9 @@ public class LocationSQLDAO implements ILocationDAO {
     public List<LocationDTO> fetchByDescription(String description) {
         return null;
     }
+
+    @Override
+    public LocationDTO fetchByCity(String city) throws Exception {
+        return null;
+    }
 }

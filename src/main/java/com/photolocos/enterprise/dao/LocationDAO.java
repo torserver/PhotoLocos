@@ -1,8 +1,6 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -55,7 +53,7 @@ public class LocationDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByArea(String state, String city) {
+    public LocationDTO fetchByStateAndCity(String state, String city) {
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 
@@ -80,5 +78,18 @@ public class LocationDAO implements ILocationDAO {
         }
 
         return matchingLocations;
+    }
+
+    @Override
+    public LocationDTO fetchByCity(String city) {
+        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
+        LocationDTO neededLocation = new LocationDTO();
+
+        for (LocationDTO loc : locationsCollection) {
+            if (loc.getCity().equals(city)) {
+                neededLocation = loc;
+            }
+        }
+        return neededLocation;
     }
 }

@@ -82,4 +82,9 @@ public class LocationDAOStub implements ILocationDAO {
 
         return matchingLocations;
     }
+
+    @Override
+    public LocationDTO fetchByCity(String city) throws Exception {
+        return null;
+    }
 }

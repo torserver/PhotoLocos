@@ -19,7 +19,7 @@ public interface IPhotoService {
 
     Set<PhotoDTO> fetchPhotoByStateAndCity(String state, String city) throws Exception;
 
-    Set<LocationDTO> fetchLocationByCity(String city);
+    Set<LocationDTO> fetchLocationByCity(String city) throws Exception;
 
     void saveImage(MultipartFile file) throws IOException;
 

@@ -60,4 +60,5 @@ public interface IPhotoDAO {
      * @return A set of photo objects with location matching the given location String
      */
     Set<PhotoDTO> fetchByLocation(LocationDTO location) throws Exception;
+    
 }
