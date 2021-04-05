@@ -44,7 +44,6 @@ public class LocationDAOStub implements ILocationDAO {
 
     @Override
     public LocationDTO fetchByCoordinates(String longitude, String latitude) {
-
         List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
         LocationDTO neededLocation = new LocationDTO();
 
