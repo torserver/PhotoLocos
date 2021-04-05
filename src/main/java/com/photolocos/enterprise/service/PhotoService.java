@@ -68,18 +68,8 @@ public class PhotoService implements IPhotoService {
     }
 
     @Override
-    public Set<LocationDTO> fetchLocationByCity(String city) {
-        return null;
-    }
-
-    @Override
     public LocationDTO fetchLocationByStateAndCity(String state, String city) throws Exception {
         return locationDAO.fetchByStateAndCity(state, city);
-    }
-
-    @Override
-    public void saveImage(MultipartFile file) throws IOException {
-
     }
 
 }

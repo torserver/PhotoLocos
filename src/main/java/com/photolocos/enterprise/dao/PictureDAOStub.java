@@ -10,12 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.*;
 
-/**
- * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
- *
- * PicDAO class to handle Photo related operations
- */
-
 @Repository()
 @Profile("test")
 public class PictureDAOStub implements IPhotoDAO {
