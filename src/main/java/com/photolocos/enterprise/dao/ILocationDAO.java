@@ -4,11 +4,6 @@ import com.photolocos.enterprise.dto.LocationDTO;
 
 import java.util.List;
 
-/**
- * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
- *
- * LocationDAO interface declaring required operations
- */
 public interface ILocationDAO {
 
     /**

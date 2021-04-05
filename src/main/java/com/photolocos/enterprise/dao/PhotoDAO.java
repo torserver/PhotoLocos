@@ -13,12 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-/**
- * @author Paramjyot Sandhu (sandhups@mail.uc.edu)
- *
- * PicDAO class to handle Photo related operations
- */
-
 @Repository()
 public class PhotoDAO implements IPhotoDAO {
 
@@ -66,9 +60,9 @@ public class PhotoDAO implements IPhotoDAO {
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
 
         for (PhotoDTO photo : photosCollection) {
-                if (photo.getRating() == rating) {
-                    matchedPhotos.add(photo);
-                }
+            if (photo.getRating() == rating) {
+                matchedPhotos.add(photo);
+            }
         }
 
         return matchedPhotos;

@@ -31,3 +31,12 @@
 2021-04-05 10:10:51,541 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
 2021-04-05 10:10:54,985 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 3.708 seconds (JVM running for 4.116)
 2021-04-05 10:11:06,490 INFO com.photolocos.enterprise.controller.FileUploadController [http-nio-8080-exec-5] tried to uploaded file IMG_20180617_231421.jpg
+2021-04-05 10:33:18,910 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.7 on DESKTOP-19Q4I3G with PID 308 (C:\Users\Max\git\PhotoLocos2\target\classes started by Max in C:\Users\Max\git\PhotoLocos2)
+2021-04-05 10:33:18,912 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-05 10:33:18,913 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-05 10:33:21,226 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.65 seconds (JVM running for 3.119)
+2021-04-05 10:33:52,501 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.7 on DESKTOP-19Q4I3G with PID 23784 (C:\Users\Max\git\PhotoLocos2\target\classes started by Max in C:\Users\Max\git\PhotoLocos2)
+2021-04-05 10:33:52,503 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-05 10:33:52,503 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-05 10:33:55,073 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.852 seconds (JVM running for 3.638)
+2021-04-05 10:33:59,474 INFO com.photolocos.enterprise.controller.FileUploadController [http-nio-8080-exec-3] tried to uploaded file XEoOGds.png
