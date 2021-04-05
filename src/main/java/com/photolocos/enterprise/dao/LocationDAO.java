@@ -55,17 +55,8 @@ public class LocationDAO implements ILocationDAO {
     }
 
     @Override
-    public LocationDTO fetchByArea(String state, String city) {
-        List<LocationDTO> locationsCollection = new ArrayList<>(locations.values());
-        LocationDTO neededLocation = new LocationDTO();
-
-        for (LocationDTO loc : locationsCollection) {
-            if (loc.getState().equals(state) && loc.getCity().equals(city)) {
-                neededLocation = loc;
-            }
-        }
-
-        return neededLocation;
+    public LocationDTO fetchByStateAndCity(String state, String city) throws Exception {
+        return null;
     }
 
     @Override

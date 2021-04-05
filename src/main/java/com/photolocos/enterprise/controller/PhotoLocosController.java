@@ -29,26 +29,6 @@ public class PhotoLocosController {
         return "index";
     }
 
-    @PostMapping(value="/upload")
-    public ModelAndView savePhoto(@RequestParam("image") MultipartFile image, PhotoDTO photo) {
-        log.debug("Request made to save a photo.");
-        ModelAndView modelAndView = new ModelAndView();
-
-        try {
-            photoService.savePhoto(photo, image);
-            modelAndView.setViewName("success");
-            log.info("Saved a photo.");
-        } catch (Exception e) {
-            log.error("Error occurred while attempting to save a photo, message: " + e.getMessage(), e);
-            modelAndView.setViewName("error");
-            return modelAndView;
-        }
-
-        modelAndView.addObject("photoDTO", photo);
-        return modelAndView;
-
-    }
-
     @GetMapping("/photos")
     @ResponseBody
     public Set<PhotoDTO> fetchAllPhotos() {

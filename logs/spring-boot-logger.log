@@ -17,3 +17,17 @@
 2021-04-04 18:19:52,177 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
 2021-04-04 18:19:52,178 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
 2021-04-04 18:19:54,250 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 2.414 seconds (JVM running for 2.971)
+2021-04-05 10:08:36,973 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.7 on DESKTOP-19Q4I3G with PID 14304 (C:\Users\Max\IdeaProjects\PhotoLocos\target\classes started by Max in C:\Users\Max\IdeaProjects\PhotoLocos)
+2021-04-05 10:08:36,975 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-05 10:08:36,976 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-05 10:09:44,771 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.7 on DESKTOP-19Q4I3G with PID 25052 (C:\Users\Max\IdeaProjects\PhotoLocos\target\classes started by Max in C:\Users\Max\IdeaProjects\PhotoLocos)
+2021-04-05 10:09:44,773 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-05 10:09:44,773 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-05 10:10:06,986 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.7 on DESKTOP-19Q4I3G with PID 22672 (C:\Users\Max\IdeaProjects\PhotoLocos\target\classes started by Max in C:\Users\Max\IdeaProjects\PhotoLocos)
+2021-04-05 10:10:06,988 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-05 10:10:06,989 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-05 10:10:51,538 INFO org.springframework.boot.StartupInfoLogger [main] Starting EnterpriseApplication using Java 11.0.7 on DESKTOP-19Q4I3G with PID 8580 (C:\Users\Max\IdeaProjects\PhotoLocos\target\classes started by Max in C:\Users\Max\IdeaProjects\PhotoLocos)
+2021-04-05 10:10:51,540 DEBUG org.springframework.boot.StartupInfoLogger [main] Running with Spring Boot v2.4.2, Spring v5.3.3
+2021-04-05 10:10:51,541 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: dev
+2021-04-05 10:10:54,985 INFO org.springframework.boot.StartupInfoLogger [main] Started EnterpriseApplication in 3.708 seconds (JVM running for 4.116)
+2021-04-05 10:11:06,490 INFO com.photolocos.enterprise.controller.FileUploadController [http-nio-8080-exec-5] tried to uploaded file IMG_20180617_231421.jpg

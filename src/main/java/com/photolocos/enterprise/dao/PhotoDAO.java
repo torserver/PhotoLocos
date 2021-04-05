@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dao;
 
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -88,7 +89,8 @@ public class PhotoDAO implements IPhotoDAO {
     }
 
     @Override
-    public PhotoDTO fetchByLocation(int locationID) {
+    public Set<PhotoDTO> fetchByLocation(LocationDTO location) throws Exception {
         return null;
     }
+
 }
