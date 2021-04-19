@@ -35,11 +35,6 @@ class LocationDTO implements Serializable {
     private String description;
 
 
-//    @ToString.Exclude
-//    @OneToOne(cascade=CascadeType.ALL)
-//    @JoinColumn(name="id")
-//    private PhotoDTO photo;
-
     public boolean equals(LocationDTO location) {
         return (this.getState().equals(location.getState()) && this.getCity().equals(location.getCity()))
           
