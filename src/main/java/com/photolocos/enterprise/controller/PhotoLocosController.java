@@ -1,13 +1,14 @@
 package com.photolocos.enterprise.controller;
 
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import com.photolocos.enterprise.service.IPhotoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Set;
@@ -25,9 +26,20 @@ public class PhotoLocosController {
      * @return index.html
      */
     @RequestMapping("/")
-    public String main() {
+    public String index(Model model) {
+        LocationDTO location = new LocationDTO();
+        location.setLongitude("84.51");
+        location.setLatitude("39.10");
+        location.setCountry("USA");
+        location.setState("OH");
+        location.setCity("Cincinnati");
+        location.setArea("Downtown");
+        location.setDescription("Urban Area, Hills, Parks, Riverfront");
+
+        model.addAttribute("location", location);
         return "index";
     }
+
 
     @GetMapping("/photos")
     @ResponseBody

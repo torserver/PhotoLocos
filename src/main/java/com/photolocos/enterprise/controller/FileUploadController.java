@@ -8,13 +8,13 @@ import com.photolocos.enterprise.service.IPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -22,11 +22,8 @@ import java.util.Date;
 
 @Slf4j
 @RestController
-@RequestMapping("/upload")
 public class FileUploadController {
 
-    @Autowired
-    private IPhotoDAO photoDAO;
     @Autowired
     private IPhotoService photoService;
 
@@ -44,17 +41,27 @@ public class FileUploadController {
     public String upload(PhotoDTO photo, LocationDTO locationDTO, @RequestParam("file") MultipartFile file, Model model) {
         log.info("tried to uploaded file " + file.getOriginalFilename());
         String returnValue = "start";
+        ModelAndView modelAndView = new ModelAndView();
+        try {
+            locationDAO.createEntry(location);
+        } catch (Exception e) {
+            e.printStackTrace();
+            modelAndView.setViewName("error");
+            return modelAndView;
+        }
 
+        PhotoDTO photo = new PhotoDTO();
         try {
             photo.setLocation(locationDTO);
             photoService.savePhoto(photo, file);
-//            photoDAO.saveImage(file);
-//            photoDAO.save(photo);
             model.addAttribute("photo", photo);
             returnValue = "success";
         } catch (Exception e) {
             returnValue = "error";
         }
-        return returnValue;
+        modelAndView.addObject("photo", photo);
+        modelAndView.addObject("location", location);
+
+        return modelAndView;
     }
 }

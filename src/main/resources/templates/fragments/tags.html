@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="tags">
     <div class="container">
         <div class="row">
@@ -31,9 +33,11 @@
 <div th:fragment="breadcrumbs">
     <nav aria-label="breadcrumb"> <!-- This section is merely a placeholder for now, will be expanded and made more responsive -->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"  aria-current="page">United States</li>
-            <li class="breadcrumb-item" aria-current="page">Ohio</li>
-            <li class="breadcrumb-item active" aria-current="page">Cincinnati</li>
+            <li th:text="${location.country}" class="breadcrumb-item"  aria-current="page">United States</li>
+            <li th:text="${location.state}" class="breadcrumb-item" aria-current="page">Ohio</li>
+            <li th:text="${location.city}" class="breadcrumb-item active" aria-current="page">Cincinnati</li>
+            <li th:text="${location.area}" class="breadcrumb-item active" aria-current="page">Sharon Woods</li>
         </ol>
     </nav>
 </div>
+</html>

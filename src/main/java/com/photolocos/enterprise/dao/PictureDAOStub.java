@@ -27,7 +27,7 @@ public class PictureDAOStub implements IPhotoDAO {
     }
 
     @Override
-    public void saveImage(MultipartFile image) throws IOException {
+    public void saveImage(MultipartFile image, PhotoDTO photo) throws IOException {
 
     }
 
