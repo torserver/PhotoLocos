@@ -21,7 +21,7 @@ public interface IPhotoDAO {
 
     void save(PhotoDTO photo);
 
-    void saveImage(MultipartFile image) throws IOException;
+    void saveImage(MultipartFile image, PhotoDTO photoDTO) throws IOException;
 
     /**
      * This method will return a Set of photo objects {@link PhotoDTO}, that have similar tag(s)

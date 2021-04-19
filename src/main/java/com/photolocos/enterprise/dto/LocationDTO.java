@@ -23,7 +23,7 @@ class LocationDTO implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private int locationId;
 
     private String longitude;
     private String latitude;
@@ -32,7 +32,6 @@ class LocationDTO implements Serializable {
     private String city;
     private String area;
     private String description;
-    private int locationId;
 
     public boolean equals(LocationDTO location) {
         return (this.getState().equals(location.getState()) && this.getCity().equals(location.getCity()))

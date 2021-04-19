@@ -24,10 +24,11 @@ class PhotoDTO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int photoId;
 
     private String type;
     private String fileType;
+    private String fileName;
     private String filePath;
     private String tips;
     private String uri;
@@ -37,10 +38,8 @@ class PhotoDTO implements Serializable {
     private int rating;
 
     @OneToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="location_id")
     private LocationDTO location;
-
-    private int photoId;
 
     /*
      *
@@ -163,20 +162,6 @@ class PhotoDTO implements Serializable {
             //TODO Logic for ratings lower than 0, an invalid input.
             System.out.println("Rating of " + rating + ", is too low");
         }
-    }
-
-    /**
-     * @return id, ID of the photo, linked to a location.
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id, ID of the photo, linked to a location.
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 
     /**

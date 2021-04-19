@@ -34,7 +34,7 @@ public class PhotoSQLDAO implements IPhotoDAO {
     }
 
     @Override
-    public void saveImage(MultipartFile image) throws IOException {
+    public void saveImage(MultipartFile image, PhotoDTO photoDTO) throws IOException {
 
     }
 

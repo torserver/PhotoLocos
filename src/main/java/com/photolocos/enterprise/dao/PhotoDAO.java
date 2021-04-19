@@ -2,6 +2,7 @@ package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -18,6 +19,9 @@ public class PhotoDAO implements IPhotoDAO {
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();
 
+    @Autowired
+    private PhotoRepository photoRepository;
+
     @Override
     public Set<PhotoDTO> fetchAll() {
         return new HashSet<>(photos.values());
@@ -25,14 +29,17 @@ public class PhotoDAO implements IPhotoDAO {
 
     @Override
     public void save(PhotoDTO photo) {
-
+        photoRepository.save(photo);
     }
 
     @Override
-    public void saveImage(MultipartFile file) throws IOException {
-        String folder = "/uploadedPhotos/";
+    public void saveImage(MultipartFile file, PhotoDTO photo) throws IOException {
+        Path currentPath = Paths.get(".");
+        Path absolutePath = currentPath.toAbsolutePath();
+        photo.setFilePath(absolutePath + "/src/main/resources/static/photos/");
         byte[] bytes = file.getBytes();
-        Files.write(Paths.get(folder + file.getOriginalFilename()), bytes);
+        Path path = Paths.get(photo.getFilePath() + file.getOriginalFilename());
+        Files.write(path, bytes);
     }
 
 
