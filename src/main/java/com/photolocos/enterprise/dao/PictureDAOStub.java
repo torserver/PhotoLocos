@@ -23,12 +23,12 @@ public class PictureDAOStub implements IPhotoDAO {
 
     @Override
     public void save(PhotoDTO photo) {
-        photo.setId(photos.size());
-        photos.put(photo.getId(), photo);
+        photo.setPhotoId(photos.size());
+        photos.put(photo.getPhotoId(), photo);
     }
 
     @Override
-    public void saveImage(MultipartFile image) throws IOException {
+    public void saveImage(MultipartFile image, PhotoDTO photo) throws IOException {
 
     }
 

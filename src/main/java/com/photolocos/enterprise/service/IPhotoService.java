@@ -4,6 +4,7 @@ import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Set;
 
 public interface IPhotoService {
@@ -12,7 +13,7 @@ public interface IPhotoService {
 
     Set<PhotoDTO> fetchByTag(String tag) throws Exception;
 
-    PhotoDTO savePhoto(PhotoDTO photo, MultipartFile image);
+    void saveImage(MultipartFile file, PhotoDTO photo) throws IOException;
 
     Set<PhotoDTO> fetchAll() throws Exception;
 
