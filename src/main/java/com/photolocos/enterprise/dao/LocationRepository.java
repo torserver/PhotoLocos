@@ -18,7 +18,7 @@ public interface LocationRepository extends CrudRepository<LocationDTO, Integer>
 
     LocationDTO findByLatitudeAndLongitude(String latitude, String longitude) throws Exception;
 
-    LocationDTO findByLocationId(int locationId) throws Exception
+    LocationDTO findByLocationId(int locationId) throws Exception;
 
     LocationDTO findByStateAndCity(String state, String city) throws Exception;
 
