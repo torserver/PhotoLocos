@@ -1,12 +1,10 @@
 package com.photolocos.enterprise.controller;
 
 import com.photolocos.enterprise.dao.IPhotoDAO;
-import com.photolocos.enterprise.dao.PhotoDAO;
 import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import com.photolocos.enterprise.service.IPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import java.util.Date;
 
 @Slf4j
 @RestController
