@@ -13,7 +13,7 @@ public interface IPhotoService {
 
     Set<PhotoDTO> fetchByTag(String tag) throws Exception;
 
-    void saveImage(MultipartFile file, PhotoDTO photo) throws IOException;
+    PhotoDTO savePhoto(PhotoDTO photo, MultipartFile file) throws IOException;
 
     Set<PhotoDTO> fetchAll() throws Exception;
 
