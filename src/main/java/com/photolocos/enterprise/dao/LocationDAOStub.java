@@ -33,7 +33,7 @@ public class LocationDAOStub implements ILocationDAO {
         userLocation.setArea("Sharon Woods, Downtown, Alms Park, Eden Park");
         userLocation.setDescription("Urban Area, Hills, Parks, Riverfront");
         userLocation.setLocationId(1);
-        userLocation.setId(1);
+        userLocation.setLocationId(1);
 
         return userLocation;
     }
@@ -78,5 +78,11 @@ public class LocationDAOStub implements ILocationDAO {
         }
 
         return matchingLocations;
+    }
+
+    @Override
+    public LocationDTO fetchByArea(String area) throws Exception {
+
+        return null;
     }
 }

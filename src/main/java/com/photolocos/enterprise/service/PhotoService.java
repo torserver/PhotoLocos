@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Set;
 
 @Component
@@ -25,8 +28,9 @@ public class PhotoService implements IPhotoService {
     @Override
     @Cacheable(value = "fetchByArea", key = "#area")
     public Set<PhotoDTO> fetchByArea(String area) throws Exception {
-        LocationDTO location = new LocationDTO();
-        location.setArea(area);
+        LocationDTO location = locationDAO.fetchByArea(area);
+
+
         return photoDAO.fetchByLocation(location);
     }
 
@@ -41,6 +45,11 @@ public class PhotoService implements IPhotoService {
     public PhotoDTO savePhoto(PhotoDTO photo, MultipartFile image) {
         PhotoDTO savedPhoto;
         try {
+            Path currentPath = Paths.get(".");
+            Path absolutePath = currentPath.toAbsolutePath();
+            Path path = Paths.get(absolutePath + "/src/main/resources/static/photos/" + image.getOriginalFilename());
+            photo.setFilePath(path.toString());
+
             photoDAO.save(photo);
             photoDAO.saveImage(image);
             savedPhoto = photo;

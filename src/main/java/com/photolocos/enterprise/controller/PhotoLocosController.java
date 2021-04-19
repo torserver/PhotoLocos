@@ -76,7 +76,7 @@ public class PhotoLocosController {
         return  modelAndView;
     }
 
-    @GetMapping("/photoByCity/{area}/")
+    @GetMapping("/photoByArea/{area}/")
     public ModelAndView photoByArea(@PathVariable("area") String area) {
         log.debug("Request made to retrieve photos by area.");
         ModelAndView modelAndView = new ModelAndView();
@@ -88,6 +88,7 @@ public class PhotoLocosController {
         } catch (Exception e) {
             log.error("Error occurred while attempting to retrieve photos by area, message: " + e.getMessage(), e);
         }
+
         modelAndView.addObject("photos", photos);
         return  modelAndView;
     }

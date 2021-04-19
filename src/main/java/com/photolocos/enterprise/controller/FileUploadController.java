@@ -1,7 +1,10 @@
 package com.photolocos.enterprise.controller;
 
+import com.photolocos.enterprise.dao.IPhotoDAO;
 import com.photolocos.enterprise.dao.PhotoDAO;
+import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
+import com.photolocos.enterprise.service.IPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.ui.Model;
@@ -13,13 +16,19 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import java.util.Date;
+
 @Slf4j
 @RestController
 @RequestMapping("/upload")
 public class FileUploadController {
 
     @Autowired
-    private PhotoDAO photoDAO;
+    private IPhotoDAO photoDAO;
+    @Autowired
+    private IPhotoService photoService;
 
     /**
      * What do we want to do when the file is uploaded?
@@ -32,15 +41,17 @@ public class FileUploadController {
      * @param file
      */
     @PostMapping
-    public String upload(@RequestParam("file") MultipartFile file, Model model) {
+    public String upload(PhotoDTO photo, LocationDTO locationDTO, @RequestParam("file") MultipartFile file, Model model) {
         log.info("tried to uploaded file " + file.getOriginalFilename());
         String returnValue = "start";
 
         try {
-            photoDAO.saveImage(file);
-            PhotoDTO photo = new PhotoDTO();
+            photo.setLocation(locationDTO);
+            photoService.savePhoto(photo, file);
+//            photoDAO.saveImage(file);
+//            photoDAO.save(photo);
             model.addAttribute("photo", photo);
-            returnValue = "start";
+            returnValue = "success";
         } catch (Exception e) {
             returnValue = "error";
         }

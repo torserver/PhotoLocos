@@ -1,6 +1,7 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
+import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.repository.CrudRepository;
 
@@ -17,8 +18,9 @@ public interface LocationRepository extends CrudRepository<LocationDTO, Integer>
 
     LocationDTO findByLatitudeAndLongitude(String latitude, String longitude) throws Exception;
 
-    LocationDTO findByid(int id) throws Exception;
+    LocationDTO findByLocationId(int id) throws Exception;
 
     LocationDTO findByStateAndCity(String state, String city) throws Exception;
 
+    LocationDTO findByArea(String area) throws Exception;
 }

@@ -3,7 +3,6 @@ package com.photolocos.enterprise.dao;
 import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -23,8 +22,8 @@ public class PictureDAOStub implements IPhotoDAO {
 
     @Override
     public void save(PhotoDTO photo) {
-        photo.setId(photos.size());
-        photos.put(photo.getId(), photo);
+        photo.setPhotoId(photos.size());
+        photos.put(photo.getPhotoId(), photo);
     }
 
     @Override
@@ -91,4 +90,6 @@ public class PictureDAOStub implements IPhotoDAO {
         }
         return matchedPhotos;
     }
+
+
 }

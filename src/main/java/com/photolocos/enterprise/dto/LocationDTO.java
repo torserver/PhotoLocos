@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dto;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,7 +24,7 @@ class LocationDTO implements Serializable {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
+    private int locationId;
 
     private String longitude;
     private String latitude;
@@ -32,7 +33,12 @@ class LocationDTO implements Serializable {
     private String city;
     private String area;
     private String description;
-    private int locationId;
+
+
+//    @ToString.Exclude
+//    @OneToOne(cascade=CascadeType.ALL)
+//    @JoinColumn(name="id")
+//    private PhotoDTO photo;
 
     public boolean equals(LocationDTO location) {
         return (this.getState().equals(location.getState()) && this.getCity().equals(location.getCity()))
