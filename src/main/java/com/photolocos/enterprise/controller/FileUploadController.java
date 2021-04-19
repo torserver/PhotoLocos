@@ -1,6 +1,5 @@
 package com.photolocos.enterprise.controller;
 
-import com.photolocos.enterprise.dao.ILocationDAO;
 import com.photolocos.enterprise.dao.IPhotoDAO;
 import com.photolocos.enterprise.dao.PhotoDAO;
 import com.photolocos.enterprise.dto.LocationDTO;
@@ -17,16 +16,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import java.util.Date;
+
 @Slf4j
 @RestController
 public class FileUploadController {
 
     @Autowired
     private IPhotoService photoService;
-
-    @Autowired
-    private ILocationDAO locationDAO;
-
 
     /**
      * What do we want to do when the file is uploaded?
@@ -38,8 +37,8 @@ public class FileUploadController {
      *
      * @param file
      */
-    @RequestMapping("/upload")
-    public ModelAndView upload(LocationDTO location, @RequestParam("file") MultipartFile file, Model model) {
+    @PostMapping
+    public String upload(PhotoDTO photo, LocationDTO locationDTO, @RequestParam("file") MultipartFile file, Model model) {
         log.info("tried to uploaded file " + file.getOriginalFilename());
         String returnValue = "start";
         ModelAndView modelAndView = new ModelAndView();
@@ -53,17 +52,12 @@ public class FileUploadController {
 
         PhotoDTO photo = new PhotoDTO();
         try {
-            photo.setFileName(file.getOriginalFilename());
-            photo.setFilePath("/photo/");
-            photo.setLocation(location);
+            photo.setLocation(locationDTO);
+            photoService.savePhoto(photo, file);
             model.addAttribute("photo", photo);
-            photoService.saveImage(file, photo);
-            model.addAttribute("location", location);
-            modelAndView.setViewName("success");
-        } catch (IOException e) {
-            e.printStackTrace();
-            modelAndView.setViewName("error");
-            return modelAndView;
+            returnValue = "success";
+        } catch (Exception e) {
+            returnValue = "error";
         }
         modelAndView.addObject("photo", photo);
         modelAndView.addObject("location", location);

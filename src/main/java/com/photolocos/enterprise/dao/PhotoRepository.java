@@ -18,4 +18,5 @@ public interface PhotoRepository extends CrudRepository<PhotoDTO, Integer> {
 
     List<PhotoDTO> findByLocation(LocationDTO location) throws Exception;
 
+
 }

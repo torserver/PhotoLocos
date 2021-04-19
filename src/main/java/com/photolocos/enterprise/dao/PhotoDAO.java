@@ -15,35 +15,27 @@ import java.nio.file.Paths;
 import java.util.*;
 
 @Repository()
-public class PhotoDAO implements IPhotoDAO {
+public class PhotoDAO{
 
     Map<Integer, PhotoDTO> photos = new HashMap<>();
 
-    @Autowired
-    private PhotoRepository photoRepository;
-
-    @Override
     public Set<PhotoDTO> fetchAll() {
         return new HashSet<>(photos.values());
     }
 
-    @Override
+
     public void save(PhotoDTO photo) {
         photoRepository.save(photo);
     }
 
-    @Override
-    public void saveImage(MultipartFile file, PhotoDTO photo) throws IOException {
-        Path currentPath = Paths.get(".");
-        Path absolutePath = currentPath.toAbsolutePath();
-        photo.setFilePath(absolutePath + "/src/main/resources/static/photos/");
+    public void saveImage(MultipartFile file) throws IOException {
+        String folder = "/uploadedPhotos/";
         byte[] bytes = file.getBytes();
         Path path = Paths.get(photo.getFilePath() + file.getOriginalFilename());
         Files.write(path, bytes);
     }
 
 
-    @Override
     public Set<PhotoDTO> fetchByTag(String[] tags) {
         List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
@@ -61,7 +53,7 @@ public class PhotoDAO implements IPhotoDAO {
         return matchedPhotos;
     }
 
-    @Override
+
     public Set<PhotoDTO> fetchByRating(int rating) {
         List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
@@ -75,7 +67,6 @@ public class PhotoDAO implements IPhotoDAO {
         return matchedPhotos;
     }
 
-    @Override
     public Set<PhotoDTO> fetchByType(String type) {
         List<PhotoDTO> photosCollection = new ArrayList<>(photos.values());
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
@@ -89,7 +80,6 @@ public class PhotoDAO implements IPhotoDAO {
         return matchedPhotos;
     }
 
-    @Override
     public Set<PhotoDTO> fetchByLocation(LocationDTO location) throws Exception {
         return null;
     }

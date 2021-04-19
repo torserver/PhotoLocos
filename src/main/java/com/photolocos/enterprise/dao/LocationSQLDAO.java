@@ -1,6 +1,7 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
+import com.photolocos.enterprise.dto.PhotoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
@@ -37,5 +38,12 @@ public class LocationSQLDAO implements ILocationDAO {
     @Override
     public List<LocationDTO> fetchByDescription(String description) {
         return null;
+    }
+
+    @Override
+    public LocationDTO fetchByArea(String area) throws Exception {
+        LocationDTO byArea = locationRepository.findByArea(area);
+
+        return byArea;
     }
 }

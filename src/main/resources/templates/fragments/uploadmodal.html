@@ -13,27 +13,67 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <form action="#" th:action="@{/upload}" th:object="${photodto}" enctype="multipart/form-data" method="POST" class="dropzone">
+                            <p class="h3">Photo Information</p>
+                            <div class="row-12">
+                                <div class="input-group input-group-sm mb-3 col-12">
+                                    <div class="input-group mb-3 row-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="tags">Tags:</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="tags" field="*{tags}"/>
+                                    </div> <br>
+                                    <div class="input-group mb-3 row-12">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="type">Type:</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="type" field="*{type}"/>
+                                    </div> <br>
+                                </div>
+                            </div>
+                            <div th:object="${locationdto}" >
+                                <p class="h3">Location Information</p>
+                                <div class="row-12">
+                                    <div class="input-group input-group-sm mb-3 col-12">
+                                        <div class="input-group mb-3 row-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="longitude">Longitude:</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="longitude" field="*{longitude}"/>
+                                        </div> <br>
+                                        <div class="input-group mb-3 row-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="latitude">Latitude:</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="latitude" field="*{latitude}"/>
+                                        </div><br>
+                                        <div class="input-group mb-3 row-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="state">State:</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="state" field="*{state}"/>
+                                        </div> <br>
+                                        <div class="input-group mb-3 row-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="city">City:</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="city" field="*{city}"/>
+                                        </div><br>
+                                        <div class="input-group mb-3 row-12">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="area">Area:</span>
+                                            </div>
+                                            <input type="text" class="form-control" name="area" field="*{area}"/>
+                                        </div><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                                <button name="submit" type="submit" value="0" id='uploadfiles'>Submit</button>
+                            </div>
+                        </form>
                     </div>
-                    <form action="#" th:action="@{/upload}" enctype="multipart/form-data" th:object="${location}" method="post">
-                        <div class="form-group">
-                            <label for="image-country" class="col-form-label">Country:</label>
-                            <input type="text" class="form-control" id="image-country" name="country" th:field="*{country}"/>
-                            <label for="image-state" class="col-form-label">State:</label>
-                            <input type="text" class="form-control" id="image-state" name="state" th:field="*{state}"/>
-                            <label for="image-city" class="col-form-label">City:</label>
-                            <input type="text" class="form-control" id="image-city" name="city" th:field="*{city}"/>
-                            <label for="image-area" class="col-form-label">Area:</label>
-                            <input type="text" class="form-control" id="image-area" name="area" th:field="*{area}"/>
-                            <label for="image-tags" class="col-form-label">Tags:</label>
-                            <input type="text" class="form-control" id="image-tags"/>
-                            <label for="image" class="col-form-label">Photo:</label>
-                            <input type="file" class="form-control" id="image" name="file">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-success" id="uploadfiles" value="0">Upload</button>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>

@@ -9,6 +9,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 @Repository
@@ -34,8 +37,12 @@ public class PhotoSQLDAO implements IPhotoDAO {
     }
 
     @Override
-    public void saveImage(MultipartFile image, PhotoDTO photoDTO) throws IOException {
-
+    public void saveImage(MultipartFile image) throws IOException {
+        Path currentPath = Paths.get(".");
+        Path absolutePath = currentPath.toAbsolutePath();
+        byte[] bytes = image.getBytes();
+        Path path = Paths.get(absolutePath + "/src/main/resources/static/photos/" + image.getOriginalFilename());
+        Files.write(path, bytes);
     }
 
     @Override
@@ -69,4 +76,6 @@ public class PhotoSQLDAO implements IPhotoDAO {
 
         return new HashSet<>(byLocation);
     }
+
+
 }

@@ -1,6 +1,7 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
+import com.photolocos.enterprise.dto.PhotoDTO;
 
 import java.util.List;
 
@@ -48,4 +49,6 @@ public interface ILocationDAO {
      * @return a list of location objects matching the description of a location
      */
     List<LocationDTO> fetchByDescription(String description);
+
+    LocationDTO fetchByArea(String area) throws Exception;
 }

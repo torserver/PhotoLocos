@@ -100,6 +100,7 @@ public class PhotoLocosController {
         } catch (Exception e) {
             log.error("Error occurred while attempting to retrieve photos by area, message: " + e.getMessage(), e);
         }
+
         modelAndView.addObject("photos", photos);
         return  modelAndView;
     }

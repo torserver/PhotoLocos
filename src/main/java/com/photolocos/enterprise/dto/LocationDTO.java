@@ -1,5 +1,6 @@
 package com.photolocos.enterprise.dto;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,6 +33,7 @@ class LocationDTO implements Serializable {
     private String city;
     private String area;
     private String description;
+
 
     public boolean equals(LocationDTO location) {
         return (this.getState().equals(location.getState()) && this.getCity().equals(location.getCity()))
