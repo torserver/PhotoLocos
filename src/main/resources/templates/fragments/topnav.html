@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="navbar">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" th:href="@{/}">PhotoLocos</a>
@@ -18,5 +16,7 @@
             </form>
         </div>
     </nav>
+    <!-- Upload Modal -->
+    <div th:replace="fragments/uploadmodal :: uploadmodal">
+    </div>
 </div>
-</html>

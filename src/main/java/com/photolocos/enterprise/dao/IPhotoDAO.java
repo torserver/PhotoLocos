@@ -7,6 +7,11 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * @author Paramjyot Sandhu
+ *
+ * PhotoDAO interface declaring required operations
+ */
 public interface IPhotoDAO {
 
     /**
@@ -21,7 +26,7 @@ public interface IPhotoDAO {
 
     void save(PhotoDTO photo);
 
-    void saveImage(MultipartFile image, PhotoDTO photoDTO) throws IOException;
+    void saveImage(MultipartFile image) throws IOException;
 
     /**
      * This method will return a Set of photo objects {@link PhotoDTO}, that have similar tag(s)
