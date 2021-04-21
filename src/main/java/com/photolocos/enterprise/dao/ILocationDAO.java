@@ -1,10 +1,14 @@
 package com.photolocos.enterprise.dao;
 
 import com.photolocos.enterprise.dto.LocationDTO;
-import com.photolocos.enterprise.dto.PhotoDTO;
 
 import java.util.List;
 
+/**
+ * @author Paramjyot Sandhu
+ *
+ * LocationDAO interface declaring required operations
+ */
 public interface ILocationDAO {
 
     /**

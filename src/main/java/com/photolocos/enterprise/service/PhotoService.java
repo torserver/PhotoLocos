@@ -29,9 +29,9 @@ public class PhotoService implements IPhotoService {
     @Cacheable(value = "fetchByArea", key = "#area")
     public Set<PhotoDTO> fetchByArea(String area) throws Exception {
         LocationDTO location = locationDAO.fetchByArea(area);
+        Set<PhotoDTO> photoByArea = photoDAO.fetchByLocation(location);
 
-
-        return photoDAO.fetchByLocation(location);
+        return photoByArea;
     }
 
     @Override
@@ -47,7 +47,11 @@ public class PhotoService implements IPhotoService {
         try {
             Path currentPath = Paths.get(".");
             Path absolutePath = currentPath.toAbsolutePath();
-            Path path = Paths.get(absolutePath + "/src/main/resources/static/photos/" + image.getOriginalFilename());
+            String str = absolutePath.toString();
+            if (str != null && str.length() > 0) {
+                str = str.substring(0, str.length() - 2);
+            }
+            Path path = Paths.get(str + "/src/main/resources/static/photos/" + image.getOriginalFilename());
             photo.setFilePath(path.toString());
 
             photoDAO.save(photo);

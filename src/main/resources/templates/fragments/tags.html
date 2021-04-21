@@ -1,31 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <div th:fragment="tags">
     <div class="container">
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm"><a th:href="@{'/photoByArea/Lake/'}">Cleveland</a></button>
+                <button type="button" class="btn btn-secondary btn-sm"><a class="text-warning" th:href="@{'/photoByArea/Lake/'}">Lake</a></button>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Akron</button>
+                <button type="button" class="btn btn-secondary btn-sm"><a class="text-warning" th:href="@{'/photoByArea/Sharon Woods/'}">Sharon Woods</a></button>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Columbus</button>
+                <button type="button" class="btn btn-secondary btn-sm"><a class="text-warning" th:href="@{'/photoByArea/Downtown/'}">Downtown</a></button>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Indianapolis</button>
+                <button type="button" class="btn btn-secondary btn-sm"><a class="text-warning" th:href="@{'/photoByArea/Eden Park/'}">Eden Park</a></button>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Lexington</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Louisville</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Oxford</button>
-            </div>
-            <div class="col">
-                <button type="button" class="btn btn-secondary btn-sm">Portsmouth</button>
+                <button type="button" class="btn btn-secondary btn-sm"><a class="text-warning" th:href="@{'/photoByArea/UC/'}">UC</a></button>
             </div>
         </div>
     </div>
@@ -33,11 +22,9 @@
 <div th:fragment="breadcrumbs">
     <nav aria-label="breadcrumb"> <!-- This section is merely a placeholder for now, will be expanded and made more responsive -->
         <ol class="breadcrumb">
-            <li th:text="${location.country}" class="breadcrumb-item"  aria-current="page">United States</li>
-            <li th:text="${location.state}" class="breadcrumb-item" aria-current="page">Ohio</li>
-            <li th:text="${location.city}" class="breadcrumb-item active" aria-current="page">Cincinnati</li>
-            <li th:text="${location.area}" class="breadcrumb-item active" aria-current="page">Sharon Woods</li>
+            <li class="breadcrumb-item"  aria-current="page">United States</li>
+            <li class="breadcrumb-item" aria-current="page">Ohio</li>
+            <li class="breadcrumb-item active" aria-current="page">Cincinnati</li>
         </ol>
     </nav>
 </div>
-</html>

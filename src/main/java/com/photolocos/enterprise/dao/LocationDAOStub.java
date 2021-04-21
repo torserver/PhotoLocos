@@ -10,6 +10,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Paramjyot Sandhu
+ *
+ * LocDAO class to handle Location related operations
+ */
 
 @Repository
 @Profile("test")

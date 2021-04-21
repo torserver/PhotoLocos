@@ -1,19 +1,26 @@
 package com.photolocos.enterprise.controller;
 
+import com.photolocos.enterprise.dao.IPhotoDAO;
 import com.photolocos.enterprise.dto.LocationDTO;
 import com.photolocos.enterprise.dto.PhotoDTO;
 import com.photolocos.enterprise.service.IPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
+@RequestMapping("/upload")
 public class FileUploadController {
 
+    @Autowired
+    private IPhotoDAO photoDAO;
     @Autowired
     private IPhotoService photoService;
 
@@ -40,7 +47,6 @@ public class FileUploadController {
         } catch (Exception e) {
             returnValue = "error";
         }
-
         return returnValue;
     }
 }

@@ -9,6 +9,12 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * @author Paramjyot Sandhu
+ *
+ * PicDAO class to handle Photo related operations
+ */
+
 @Repository()
 @Profile("test")
 public class PictureDAOStub implements IPhotoDAO {
@@ -55,9 +61,9 @@ public class PictureDAOStub implements IPhotoDAO {
         Set<PhotoDTO> matchedPhotos = new HashSet<>();
 
         for (PhotoDTO photo : photosCollection) {
-                if (photo.getRating() == rating) {
-                    matchedPhotos.add(photo);
-                }
+            if (photo.getRating() == rating) {
+                matchedPhotos.add(photo);
+            }
         }
 
         return matchedPhotos;
