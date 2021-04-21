@@ -80,7 +80,7 @@ public class PhotoLocosController {
     public ModelAndView photoByArea(@PathVariable("area") String area) {
         log.debug("Request made to retrieve photos by area.");
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("photopage");
         Set<PhotoDTO> photos = null;
         try {
             photos = photoService.fetchByArea(area);

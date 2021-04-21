@@ -42,8 +42,6 @@ public class FileUploadController {
         try {
             photo.setLocation(locationDTO);
             photoService.savePhoto(photo, file);
-//            photoDAO.saveImage(file);
-//            photoDAO.save(photo);
             model.addAttribute("photo", photo);
             returnValue = "success";
         } catch (Exception e) {

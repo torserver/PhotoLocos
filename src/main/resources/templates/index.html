@@ -32,29 +32,11 @@
     </div>
     <!-- Image Grid Section -->
     <div class="container-fluid">
-        <div th:each="photo : ${photos}">
-            <p th:text="${photo.getType()}"></p>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
 
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" th:src="@{${photo.getFilePath()}}" th:alt="${photo.getTags()}">
-                    </div>
-
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
         <!-- These pictures are merely placeholders and are used to demonstrate the image grid
                                      and how it'll look, they will be replaced with pictures from the DB -->
         <!-- All these pictures were obtained from "https://pixabay.com" and are free to use under the Pixabay license -->
+
         <div class="grid-row">
             <div class="grid-column">
                 <img th:src="@{https://cdn.pixabay.com/photo/2018/03/29/06/01/pete-3271452_960_720.jpg}" alt="Pete Rose Statue">

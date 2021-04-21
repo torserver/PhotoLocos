@@ -29,9 +29,9 @@ public class PhotoService implements IPhotoService {
     @Cacheable(value = "fetchByArea", key = "#area")
     public Set<PhotoDTO> fetchByArea(String area) throws Exception {
         LocationDTO location = locationDAO.fetchByArea(area);
+        Set<PhotoDTO> photoByArea = photoDAO.fetchByLocation(location);
 
-
-        return photoDAO.fetchByLocation(location);
+        return photoByArea;
     }
 
     @Override
